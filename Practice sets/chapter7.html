@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter-7 </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: gray;
+            list-style-type: none;
+        }
+        ul li{
+            margin: 5px;
+            padding: 5px;
+        }
+        ul li a{
+            text-decoration: none;
+            color:white;
+            padding:10px 0;
+            font-size: 20px;
+        }
+        table,tr,th,td{
+            border-collapse: collapse;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   
+        <!-- Q 1. -->
+        <ul>
+            <li><a href="#" id="first">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Others</a></li>
+        </ul>
+
+    <!-- Q 2. -->
+    <table>
+        <caption>Table</caption>
+        <tr>
+            <th>Name</th>
+            <th>Roll no</th>
+        </tr>
+        <tr>
+            <td>Mansi Prasad.</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td>Manish Prasad.</td>
+            <td>02</td>
+        </tr>
+    </table>
+    <div>
+        <h1>heading 1</h1>
+        <h2>heading 2</h2>
+        <h3>heading 3</h3>
+    </div>
+    <script>
+         document.getElementById("first").style.color="red";
+        // document.getElementsByTagName("li")[0].firstElementChild.style.color="red";
+        document.getElementsByTagName("div")[0].firstElementChild.style.color="green";
+        document.getElementsByTagName("div")[0].lastElementChild.style.color="green";
+        // Q 4.
+        Array.from(document.getElementsByTagName("li")).forEach(element => {
+            element.style.background="cyan";
+        });
+        
+    </script>
+</body>
+</html>

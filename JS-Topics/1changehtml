@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js practice</title>
+  </head>
+  <body>
+    <h1>js can change HTML Content.</h1>
+    <p id="demo">Hello</p>
+    <button onclick="fun()">click</button>
+    <script>
+      let fun = () => {
+        document.getElementById("demo").innerHTML = "Hello Mansi";
+      };
+    </script>
+    <h1>js can change HTML Attribute values</h1>
+    <a href="www.google.com" id="anchor">Google</a>
+    <button onclick="changesrc()">Click</button>
+    <script>
+      let changesrc = () => {
+        document.getElementById("anchor").src = "www.facebook.com";
+        document.getElementById("anchor").innerHTML = "Facebook";
+      };
+    </script>
+    <h1>js can change HTML Style CSS.</h1>
+    <p id="para1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, ipsum!
+    </p>
+    <button onclick="changeCSS()">change style</button>
+    <script>
+      const changeCSS = () => {
+        document.getElementById("para1").style.color = "green";
+      };
+    </script>
+    <h1>JS can hide HTML elements.</h1>
+    <p id="greet">Hello World!</p>
+    <button onclick="hide()">Hide Content</button>
+    <button onclick="show()">Show Content</button>
+    <script>
+      const hide = () => {
+        document.getElementById("greet").style.display = "none";
+      };
+      const show = () => {
+        document.getElementById("greet").style.display = "block";
+      };
+    </script>
+  </body>
+</html>

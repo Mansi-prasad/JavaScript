@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS JSON</title>
+  </head>
+  <body>
+    <script>
+      // JSON is a format for storing and transporting data.
+      // and often used when data is sent from server to a web page.
+      // Code for reading and generating JSON data can be written in any programming language( is text only).
+
+      // JSON Syntax Rules
+      // Data is in name/value pairs
+      // Data is separated by commas
+      // Curly braces hold objects
+      // Square brackets hold arrays
+
+      // Note: JSON keys require double quotes. JavaScript names do not.
+      // JSON syntax to define an emp obj : an array of 2 employees record.
+      //object of array
+      let j = {
+        employee: [
+          { name: "Mansi", address: "vapi" },
+          { name: "Mitanshi", address: "Bhopal" },
+        ],
+      };
+    </script>
+    <script>
+      //create object from JSON string.
+      let text =
+        '{"employees":[' +
+        '{"firstName":"John","lastName":"Doe" },' +
+        '{"firstName":"Anna","lastName":"Smith" },' +
+        '{"firstName":"Peter","lastName":"Jones" }]}';
+
+      const obj = JSON.parse(text);
+        console.log(obj.employees[1].firstName + " " + obj.employees[1].lastName);
+    </script>
+  </body>
+</html>

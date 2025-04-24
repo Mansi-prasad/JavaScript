@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ternary operator and Optional Chaining Operator</title>
+  </head>
+  <body>
+    <script>
+      // Ternary operator syntax variablename = (condition) ? value1:value2
+      let age = 19;
+      let value = age > 18 ? "You can drive" : "you cannot drive.";
+      console.log(value);
+      // Optional Chaining Operator (?.)
+      // ?. operator returns undefined if an object is undefined or null (instead of throwing an error).
+      let obj = {
+        name: "mansi",
+        address: "Vapi",
+      };
+      console.log(obj?.name);//return mansi.(value of obj property).
+      console.log(obj?.phone);
+    </script>
+  </body>
+</html>

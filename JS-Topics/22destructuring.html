@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Destructuring</title>
+  </head>
+  <body>
+    <script>
+      // Destructuring can be used with any iterables.
+      // Destructuring helps to unpack object properties into variables:
+
+      const person = {
+        first_name: "Mansi",
+        last_name: "Prasad",
+        age: 20,
+      };
+      //Destructuring object properties(does not change the original object).
+      let { last_name, age, first_name, country = "India" } = person; //we can assign default property-value.
+      console.log(first_name);
+      console.log(last_name);
+      console.log(age);
+      console.log(country);
+      // Object Property Alias
+      let { first_name: fName, last_name: lName } = person;
+      console.log(fName);
+      console.log(lName);
+    </script>
+
+    <script>
+      // String Destructuring
+      let str = "Anupam";
+      let [l1, l2, l3, l4, l5, l6] = str;
+      console.log(l1);
+      console.log(l2);
+      console.log(l3);
+      console.log(l4);
+      console.log(l5);
+      console.log(l6);
+    </script>
+    <script>
+      // Array Destructuring
+      const num = [1, 2, 3, 4, 5];
+      let [num1, , , num4, num5] = num;
+      console.log(num1);
+      console.log(num4);
+      console.log(num5);
+      // Array Position Values
+      let { [0]: n1, [1]: n2, [2]: n3 } = num;
+      console.log(n1);
+      console.log(n2);
+      console.log(n3);
+      // The Rest Property with array destructuring
+      const number = [12, 34, 23, 56, 44];
+      const [a, b, ...Rest] = number;
+      console.log(a);
+      console.log(b);
+      console.log(Rest);
+    </script>
+    <script>
+      // Destructuring Maps
+      const map1 = new Map([
+        [1, "mansi"],
+        [2, "mitanshi"],
+      ]);
+      let text = "";
+      for (const [key, value] of map1) {
+        text += key + " is " + value + "\n";
+      }
+      console.log(text);
+    </script>
+    <script>
+      // We can swap the values of two variables using a destructuring assignment
+      let x = 20;
+      let y = 40;
+      [x, y] = [y, x];
+      console.log("x= ", x);
+      console.log("y= ", y);
+    </script>
+  </body>
+</html>

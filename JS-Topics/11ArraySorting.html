@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Sorting</title>
+  </head>
+  <body>
+    <script>
+      const Name_array = [
+        "Mansi",
+        "Mitanshi",
+        "Mohit",
+        "Manish",
+        "Manoj",
+        "Sabana",
+        "Archna",
+        "Nisha",
+      ];
+      // sort() method sorts an array alphabetically(it change original array).
+      Name_array.sort();
+      console.log(Name_array);
+      // reverse() method reverses the elements in an array
+      Name_array.reverse();
+      console.log(Name_array);
+      // To sort array in descending order we acn first sort array and then reverse it.
+      const new_arry = [
+        "mango",
+        "apple",
+        "banana",
+        "guava",
+        "cherry",
+        "straubery",
+      ];
+      console.log("ner_array=", new_arry);
+      // toSorted() method as a safe way to sort an array without altering the original array.
+      console.log("Sorted new_array: ", new_arry.toSorted());
+      // toReversed() method as a safe way to reverse an array without altering the original array.
+      console.log("reversed new_array : ", new_arry.toReversed());
+    </script>
+    <script>
+      //sort() and reverse() methods are not working for numbers.
+      const num_array = [23, 54, 98, 65, 78, 23];
+      //  the compare function is to define an alternative sort order.
+      function fun_compare() {
+        num_array.sort(function (x, y) {
+          // it changes the original array
+          return x - y;
+        });
+        console.log("sorted array: ", num_array);
+      }
+      fun_compare();
+      console.log("lowest number of array: ", num_array[0]);
+      console.log("Highest number of array: ", num_array[num_array.length - 1]);
+      const numbers = [54, 76, 12, 343, 76, 88, 44, 22];
+      function find_min(arr){
+        return Math.min.apply(null,arr);
+      }
+      function find_max(arr){
+        return Math.max.apply(null,arr);
+      }
+      console.log("min value of array: ", find_min(numbers));
+      console.log("max value of array: ", find_max(numbers));
+      
+    </script>
+  </body>
+</html>

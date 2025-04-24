@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript math objects.</title>
+  </head>
+  <body>
+    <script>
+      // Math object allows you to perform mathematical tasks on numbers.
+      // the Math object has no constructor.
+      // The Math object is static.
+
+      //8 mathematical constants that can be accessed as Math properties:
+      console.log("Euler's number: ", Math.E);
+      console.log(" PI: ", Math.PI);
+      console.log("square root of 2: ", Math.SQRT2);
+      console.log(" square root of 1/2: ", Math.SQRT1_2);
+      console.log("natural logarithm of 2: ", Math.LN2);
+      console.log("natural logarithm of 10: ", Math.LN10);
+      console.log("base 2 logarithm of E: ", Math.LOG2E);
+      console.log("base 10 logarithm of E: ", Math.LOG10E);
+
+      // Math Methods syntax : Math.method(number)
+      console.log("Round of 34.50 :  ", Math.round(34.5)); //return nearest value.
+      console.log("Round of 34.51: ", Math.round(34.51)); // round up the nearest integer.
+      console.log("ceil of 34.40:  ", Math.ceil(34.4)); // round up the nearest integer.
+      console.log("Floor of 34.67 : ", Math.floor(34.67)); // round down the nearest integer.
+      console.log("trunc of 9.7: ", Math.trunc(9.7)); // returns the integer part of x.
+      console.log("sign of -5", Math.sign(-5)); //if x is negative return null or positive.
+      console.log("sign of 5", Math.sign(5));
+      console.log("3 power 2: ", Math.pow(3, 2));
+      console.log("square root of 3: ", Math.sqrt(3));
+      console.log("Absolute of -9.7: ", Math.abs(-9.7));
+      console.log("Max: ", Math.max());
+      console.log("Min: ", Math.min());
+      console.log("A random value: ", Math.random);
+      console.log("Value of log1: : ", Math.log(1));
+      console.log("Value of log2: : ", Math.log(2));
+    </script>
+
+    <script>
+      // JavaScript Random
+      // Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive)
+      // Math.random() used with Math.floor() can be used to return random integers.
+      console.log(Math.floor(Math.random() * 10)); // return 0 to 9
+      console.log(Math.floor(Math.random() * 100)); // return 0 to 99
+
+      //A function always returns a random number between min and max (both included):
+      const value = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
+      console.log(value(10, 20));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array iteration methods</title>
+  </head>
+  <body>
+    <script>
+      const arr = [55, 32, 54, 87, 12, 23, 12, 54];
+      console.log("arr=", arr);
+      // foreach() method calls a function (a callback function) once for each array element.
+      let res = "";
+      arr.forEach((value, index, array) => {
+        //iterate on every element and cannot break.
+        res += value + " \n";
+      });
+      console.log(res);
+      // map() method creates a new array by performing a function on each array element(not alter original array).
+      const new_arr = arr.map(function (value, index, array) {
+        //return an array.
+        return value * value;
+      });
+      console.log(new_arr);
+      // flatMap() method first maps all elements of an array and then creates a new array by flattening the array.
+      const newArray = arr.flatMap((a) => a * 2);
+      console.log("flatmap: ", newArray);
+
+      // filter() method creates a new array with array elements that pass a test.
+      const filtered_arr = arr.filter(function (value) {
+        if (value % 2 == 0) {
+          return value;
+        }
+      });
+      console.log("even numbers from arr : ", filtered_arr);
+      // reduce() method runs a function on each array element to produce (reduce it to) a single value(works from left-right).
+      const num_arr = [1, 7, 3];
+      let sum = 0;
+      const add = num_arr.reduce(function (sum, value, index, array) {
+        return sum + value;
+      });
+      console.log("Addition of arr elements: ", add);
+      // reduceRight() works from right-to-left in the array and reduce the array in single element.
+
+      //every() method checks if all array values pass a test.
+      const result = num_arr.every(function (value, index, array) {
+        if (value % 2 != 0) {
+          return value;
+        }
+      });
+      console.log("Are the array elements odd ?", result);
+      // some() method checks if some array values pass a test.
+      num_arr2 = [12, 3, 7, 9, 5];
+      console.log(
+        "Is any even number present in array: ",
+        num_arr2.some(function (value, index, array) {
+          if (value % 2 == 0) {
+            return true;
+          }
+        })
+      );
+
+      // Array.from() method returns an Array object from any object with a length property or any iterable object.
+      let obj = {
+        Name: "Mansi",
+        address: "Vapi",
+      };
+      const new_array_from_obj = Array.from(obj);
+      console.log(new_array_from_obj);
+      console.log("making new array from a string: ", Array.from("MANSI"));
+      // Array.keys() method returns an Array Iterator object with the keys of an array.
+      const array1 = ["Mansi", "Mitanshi", "Mohit"];
+      const keys = array1.keys(); //Array iterator.
+      console.log(keys);
+      for (let i of keys) {
+        console.log(i);
+      }
+      // entries() method returns an Array Iterator object with key/value pairs
+      const pair = array1.entries();
+      // console.log(pair);
+      for (let i of pair) {
+        console.log(i);
+      }
+
+      // Array with() is a safe way to update elements in an array without altering the original array.
+      const altered_array1 = array1.with(2, "Manish");
+      console.log(altered_array1);
+
+      //  ... operator( spread) expands an iterable (like an array) into more elements
+      const week1 = ["sun", "mon", "tue", "web"];
+      const week2 = ["thu", "fri", "sat"];
+      const week = [...week1, ...week2];
+      console.log(week);
+
+      // rest operator(...rest)--->collects the expanded elements.
+      function Addition(...args) {
+        let sum = 0;
+        for (let arg of args) {
+          sum += arg;
+        }
+        return sum;
+        // console.log("hello");
+      }
+      console.log("Addition of two numbers : ", Addition(1, 2));
+      console.log("Addition of two numbers : ", Addition(1, 2, 4, 3));
+    </script>
+  </body>
+</html>

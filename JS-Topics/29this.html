@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This Keyword</title>
+  </head>
+  <body>
+    <!-- this in Event Handlers
+        In HTML event handlers, this refers to the HTML element that received the event: -->
+    <button onclick="this.style.display='none'">Click</button>
+    <script>
+      // this keyword refers to an object.
+      // In an object method====> this refers to the object.
+      // Alone====> this refers to the global object.
+      // In a function====> this refers to the global object.
+      // In a function===> in strict mode, this is undefined.
+      // In an event====> this refers to the element that received the event.
+      // Methods like call(), apply(), and bind()====> can refer this to any object.
+
+      // 1. this in a method
+      // When used in an object method, this refers to the object.
+      const obj = {
+        first_name: "Mansi",
+        last_name: "Prasad",
+        fullname: function () {
+          return this.first_name + " " + this.last_name;
+        },
+      };
+      console.log(obj.fullname());
+      // 2. this Alone
+      // When used alone, this refers to the global object.
+      let a = this;
+      // console.log(a);
+      // this in a Function
+      // In a browser window the global object is [object Window]
+      // In a function, the global object is the default binding for this.
+      // "use strict";
+      function fun() {
+        return this;
+      }
+      console.log(fun());
+      // Object Method Binding
+      // this is the object itself:
+      const p1 = {
+        fun: function () {
+          return this;
+        },
+      };
+      console.log("pi fun= ", p1.fun());
+
+      // Explicit Function Binding
+      // call() and apply() methods are predefined JavaScript methods.
+      // They can both be used to call an object method with another object as argument.
+
+      // With the bind() method, an object can borrow a method from another object.
+      const Boy = {
+        fname: "Mansi",
+        lname: "Prasad",
+        Fullname: function () {
+          return this.fname + " " + this.lname;
+        },
+      };
+      const student = {
+        fname: "Manish",
+        lname: "Prasad",
+      };
+      let Fullname = Boy.Fullname.bind(student);
+      console.log("full name: ", Fullname);
+    </script>
+  </body>
+</html>

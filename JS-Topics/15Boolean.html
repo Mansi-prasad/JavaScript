@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean Function</title>
+  </head>
+  <body>
+    <script>
+      // Boolean() find out if an expression (or a variable) is true:
+      console.log(Boolean(true == false));
+      let x = 34;
+      let y = 35;
+      console.log(Boolean(x < y));
+      // Everything Without a "Value" is False
+      let a = 0; // -0, " ",not initialized is also false
+      console.log(Boolean(a));
+      let m = false;
+      //  booleans can also be defined as objects with the keyword new:
+      let n = new Boolean(false);
+      console.log(Boolean(n));
+      //when using == operator m,n are equal
+      console.log(Boolean(m == n)); //true
+      console.log(Boolean(m === n)); // false because the objects are reference types they cannot be equal.
+      let i = new Boolean(true);
+      let j = new Boolean(true);
+      console.log("Are both objects equal:  ", i === j); //false
+      console.log("Are both objects equal:  ", i == j); //false
+    </script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Loops</title>
+  </head>
+  <body>
+    <script>
+            //  JavaScript supports different kinds of loops:
+
+            //   for - loops through a block of code a number of times
+            //   for/in - loops through the properties of an object
+            //   for/of - loops through the values of an iterable object
+            //   while - loops through a block of code while a specified condition is true
+            //   do/while - also loops through a block of code while a specified condition is true
+
+            // 1). for loop
+            // for statement creates a loop with 3 optional expressions:
+            // You can initiate many values in expression 1 we  can omit expression 1
+            // If expression 2 returns true, the loop will start over again. If it returns false, the loop will end.
+            // Expression 3 can also be omitted (like when you increment your values inside the loop):
+
+            for (let i = 10; i >= 1; i--) {
+              console.log(i);
+            }
+
+            // 2).For In Loop
+            // for in statement loops goes through the properties of an Object:
+            // Each iteration returns a key and the key is used to access the value of the key.
+            let obj = {
+              name: "Mansi",
+              Roll: 1,
+              address: "Vapi",
+            };
+            for (let i in obj) {
+              console.log(i, obj[i]);
+            }
+            // Note: It is better to use a for loop, a for of loop, or Array.forEach() when the order is important.
+            // 3). Array.forEach()
+            const num = [1,2,3,4,5];
+            // forEach() method calls a function (a callback function) once for each array element.
+            let result = "";
+            num.forEach(myfun);
+            function myfun(value, index, array) {
+              result += value * value+" ";
+            }
+            console.log(result);
+
+            // 4). for of loop
+            // for of statement loops goes through the values of an iterable object(String, Array, TypedArray, Map and Set are all iterables).
+            // looping for array.
+            const cars=["BMW","Volvo","Venue","Skoda"];
+            let car_names=" ";
+            for(let i of cars){
+              car_names+=i+' ';
+            }
+            console.log(car_names);
+            // looping for string
+            let str="Mansi";
+            for(let i of str){
+              console.log(i);
+            }
+            //looping over sets.
+            let set_val="";
+            const set1=new Set(['a','b','c','d']);
+            for(let i of set1){
+              set_val+=i+ " ";
+            }
+            console.log(set_val);
+            // Iterating Over a Map
+            let map_val="";
+            const map1=new Map([["Mansi",1],["Vishal",2],["Suryansh",3]]);
+            for(let m of map1){
+              map_val+=m+" ";
+            }
+            console.log(map_val);
+            // 5).while loop while loop loops through a block of code as long as a specified condition is true.
+            let i=0;
+            while(i<5){
+              console.log(i);
+              i++;
+            }
+
+            // 6). do while loop This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+            let j=1;
+            do{
+              console.log("Hello",Math.random());
+              j++;
+            }while(j<5);
+
+            // Note: 
+            // The break statement "jumps out" of a loop.
+            //  The continue statement "jumps over" one iteration in the loop.
+
+
+            //JavaScript Labels.
+            // syntax: label_name:{}
+            // With a label reference, the break statement can be used to jump out of any code block:
+            const letter_array=['a','b','c','d'];
+            mylabel:{
+              console.log(letter_array[0]);
+              console.log(letter_array[1]);
+              break mylabel;
+              console.log(letter_array[2]);
+              console.log(letter_array[3]);
+            }
+    </script>
+  </body>
+</html>

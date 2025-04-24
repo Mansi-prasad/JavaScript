@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array methods.</title>
+  </head>
+  <body>
+    <script>
+      const arr = [12, 14, 25, 35, 5, 463, 2343, 34];
+      console.log(arr);
+      console.log("length of arr : ", arr.length); //length
+      console.log("arr in string : ", arr.toString()); //converts an array to a string of (comma separated) array values.
+      console.log("element at 2 : ", arr.at(2)); //returns an indexed element from an array.
+      console.log("join by * : ", arr.join("*")); //joins all array elements into a string and you can specify the separator
+      console.log("removes last element : ", arr.pop()); // removes the last element from an array:
+      console.log("push an element : ", arr.push(647)); //adds a new element to an array (at the end):
+      console.log("shift first element : ", arr.shift()); //shift() method removes the first array element and "shifts" all other elements to a lower index.
+      console.log("unshift new element: ", arr.unshift(630)); //unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:
+
+      const num1 = [1, 2, 3, 4, 43, 56, 44, 33, 98];
+      const num2 = [5, 6, 7, 8, 9, 10];
+      const num3 = [2, 6, 4];
+      //concatenate arrays
+      console.log("concatenate two array: ", num1.concat(num2, num3));
+      //copy array elements to another position
+      console.log("copy 1 at 1st position  : ", arr.copyWithin(1, 0));
+      //splice() method can be used to add new items to an array
+      //The first parameter (2) defines the position where new elements should be added (spliced in).
+
+      // The second parameter (0) defines how many elements should be removed.
+      console.log(
+        "Splice 3 items and remove 0 item: ",
+        num1.splice(2, 0, 11, 111, 1111)
+      );
+      //use splice() to remove elements without leaving "holes" in the array:
+      console.log(
+        "delete 2 items from 4th index without leaving holes :",
+        num1.splice(4, 2)
+      );
+      // slice() method slices out a piece of an array into a new array from 2nd index.:
+      console.log("slice out items from 2nd index : ", num1.slice(2));
+      console.log(
+        "slice out items from 2nd index to 4th index : ",
+        num1.slice(2, 4)
+      );
+    </script>
+  </body>
+</html>

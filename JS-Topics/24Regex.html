@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Expressions</title>
+  </head>
+  <body>
+    <script>
+      // A regular expression is a sequence of characters that forms a search pattern.
+      // The search pattern can be used for text search and text replace operations.
+      // Syntax: /pattern/modifiers;
+      // where, pattern to be search
+      // i, is a modifier (modifies the search to be case-insensitive)
+      // egular expressions are often used with the two string methods:
+      // 1. search() with RegEx
+      let text = "Our School";
+      let res = text.search(/school/i);
+      console.log(res);
+      // 2. replace() with RegEx
+      let msg = "Visit R.K college";
+      let new_msg = msg.replace(/college/i, "Desai College");
+      console.log(new_msg);
+
+      // Note: Regular Expression Modifiers
+      // i	Perform case-insensitive matching
+      // g	Perform a global match (find all)
+      // m	Perform multiline matching
+      // d	Perform start and end matching (New in ES2022)
+
+      // Regular Expression Patterns
+      // [abc]	Find any of the characters between the brackets
+      // [0-9]	Find any of the digits between the brackets
+      // (x|y)	Find any of the alternatives separated with |
+
+      // regular expression object with predefined properties and methods.
+      // 1.  test() method searches a string for a pattern, and returns true or false, depending on the result.
+      const pattern = /z/;
+      console.log(pattern.test("hello"));  //false  // we cannot use direct pattern without variable.
+
+      // exec() method searches a string for a specified pattern, and returns the found text as an object.
+      // If no match is found, it returns an empty (null) object.
+      console.log(/M/.exec("Mansi"));   //return index of M.
+      
+    </script>
+  </body>
+</html>

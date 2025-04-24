@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter- 8</title>
+    <style>
+        .bulb-image{
+            height:200px;
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q 1. -->
+    <button onclick="alert('hello')">hello</button>
+    <button onclick="alert('hello good morning')">msg</button>
+    <button onclick="alert('okay')">okk</button>
+    <!-- Q 2. -->
+    <button class="google">Google</button><br><br>
+    <!-- Q 5. -->
+        <img src="download.jpg" alt="bulb" id="bulb" class="bulb-image bulb">
+    <script>
+        // document.getElementsByClassName("google").addEventListner("click",function f1(){
+        //     window.location="https://www.google.com";
+        //     win.focus();
+        // })
+        // Q 5.
+        setInterval(async function(){
+            document.querySelector("#bulb").classList.toggle("bulb-image");
+        }, 500);
+    </script>
+</body>
+</html>

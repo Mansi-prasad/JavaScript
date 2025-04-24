@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Sets</title>
+  </head>
+  <body>
+    <script>
+      // Set is a collection of unique values.
+      //creating sets.
+      // 1). Passing an array to new Set()
+      const set1 = new Set(["Mansi", "Mohit", "Manish", "Mitanshi", "Manoj"]);
+      // 2). Create an empty set and use add() to add values
+      const set2 = new Set();
+      set2.add(1);
+      set2.add(2);
+      set2.add(3);
+      set2.add(4);
+      console.log(set2);
+      console.log(typeof set2); //sets are objects.
+
+      // Methods of sets.
+      // 1. new set() Pass an array to the new Set() constructor.
+      // 2. add() used to add elements in a set.
+      // 3. has() method returns true if a specified value exists in a set.
+      console.log(set2.has(4)); //true
+      // 4. forEach() method invokes a function for each Set element
+      result_val = "";
+      const fun = (value) => {
+        result_val += value * value + " ";
+      };
+      set2.forEach(fun);
+      console.log(result_val);
+      // 5. values() method returns an Iterator object with the values in a Set:
+      const myiterator = set2.values();
+      console.log(myiterator);
+      let res = "";
+      for (let val of myiterator) {
+        res += val + " ";
+      }
+      console.log(res);
+      // 6. keys() method returns an Iterator object with the values in a Set:
+      const Iterator_obj = set2.keys();
+      console.log(Iterator_obj); //A Set has no keys, so keys() returns the same as values().
+      // 7. entries() method returns an Iterator with [value,value] pairs from a Set(it  is supposed to return a [key,value] pair from an object).
+      const entry = set2.entries();
+      console.log(entry);
+      let res_entries = "";
+      for (let ent of entry) {
+        res_entries += ent + "\n";
+      }
+      console.log(res_entries);
+    </script>
+  </body>
+</html>

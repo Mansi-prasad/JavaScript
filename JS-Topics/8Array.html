@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      // In JavaScript, arrays use numbered indexes.
+
+      // In JavaScript, objects use named indexes.
+
+      // 1). creating array Using an array literal ---> best way.
+      const arr = [12, 13, 14, 15];
+      // 2). using new keyword.
+      const name = new Array("Manish", "Mansi", "Mitanshi", "Mohit");
+      // accessing array element using indexes
+      console.log(arr[1]);
+      //changing array element.
+      arr[2] = 647;
+      //access the full array.
+      console.log("arr= ", arr);
+      //converting an array to string.
+      arr.toString(); //converts an array to a string of (comma separated) array values.
+      console.log("Array in string format : ", arr);
+      console.log("Array type : ", typeof arr); //Arrays are Objects
+
+      //checking if a variable is an array.
+      // 1). using isArray() method.
+      console.log("is arr an array : ", Array.isArray(arr));
+      // 2). using instanceOf operator.
+      console.log("is arr an array: ", arr instanceof Array);
+
+      // array elements can be another array, objects and function.
+      const arrmix = [];
+      arrmix[0] = { name: "Mansi" };
+      arrmix[1] = function fun() {
+        return "hello";
+      };
+      arrmix[2] = [1, 2, 3, 4, 5];
+      console.log(arrmix);
+      //length property of array. it is always one more than highest index of array.
+      console.log("length of arr : ", arr.length);
+      console.log("last element of arr : ", arr[arr.length - 1]);
+      // looping array elements (use for and foreach loop.)
+      // for loop
+      const students = ["Mansi", "Mohit", "Manish", "Mitanshi"];
+      let stud_name = "";
+      for (let i = 0; i < students.length; i++) {
+        stud_name += students[i] + " ";
+      }
+      console.log("Student name(using for loop) : ", stud_name);
+
+      //foreach loop.
+      let studname = "";
+      students.forEach((n) => {
+        studname += n + " ";
+      });
+      console.log("student name(using foreach loop) : ", stud_name);
+
+      //adding array element.
+      // using push method.
+      students.push("Manoj");
+      console.log(students);
+      //  using length property.
+      students[students.length] = "Mishti";
+      console.log(students);
+
+      // Nested Arrays and Objects
+      const myobj = {
+        name: "Mansi",
+        address: "Vapi",
+        thing: [
+          { name: "Pen", type: ["linksliger", "fusion", "Writo meter"] },
+          { name: "notebook", type: ["Saathi", "Classmate"] },
+        ],
+      };
+      let container = "";
+      //accessing thing type.
+      for (let i in myobj.thing) {
+        container += "<h2>" + myobj.thing[i].name + "</h2>";
+        for (let j in myobj.thing[i].type) {
+          container += myobj.thing[i].type[j] + "</br>";
+        }
+      }
+      document.getElementById("demo").innerHTML = container;
+    </script>
+
+
+
+  </body>
+</html>

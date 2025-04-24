@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Search</title>
+  </head>
+  <body>
+    <script>
+      const arr = ["Mansi", "Manish", "Mohit", "Mitanshi", "Mohit"];
+      //find index of mohit from 1 index.
+      console.log("Index of mohit: ", arr.indexOf("Mohit", 1));
+      //find last index of mohit.
+      console.log("Last Index of mohit: ", arr.lastIndexOf("Mohit", 1));
+      // includes() check if an element is present in an array
+      console.log("Manoj is present in arr : ", arr.includes("Manoj"));
+      // find()  returns the value of the first array element that passes a test function.
+      let result = arr.find(check);
+      function check(value, index, array) {
+        if (value == "Mansi") {
+          return value;
+        }
+      }
+      console.log(result);
+
+      const num_arr = [34, 65, 76, 23, 13, 133];
+
+      // findLast() start from the end of an array and return the value of the first element that satisfies a condition.
+
+      let last_index = num_arr.findLast((value) => value > 70);
+      console.log(
+        "from end of array the last element which is greter than 70 :",
+        last_index
+      );
+      // findIndex()returns the index of the first array element that passes a test function.
+      let index_found = num_arr.findIndex(checkindex);
+      function checkindex(value, index, array) {
+        if (value > 70) {
+          return value;
+        }
+      }
+      console.log(
+        "Index of an element of array that is greter than 70: ",
+        index_found
+      );
+      // findLastIndex() finds the index of the last element that satisfies a condition.
+      console.log("Index of last element which is greter than 70 : ",num_arr.findLastIndex((value) => value > 70));
+    </script>
+  </body>
+</html>

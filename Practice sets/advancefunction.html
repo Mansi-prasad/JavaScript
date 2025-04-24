@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advance function</title>
+    <style>
+      .js-size-double {
+        font-size: 30px;
+        padding: 10px;
+        background-color: green;
+        border: none;
+      }
+      #btn {
+        color: white;
+        background-color: green;
+        padding: 5px;
+        border: none;
+        font-size: 23px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn" onclick="setTimeout(sizedouble,2000);">click</button>
+    <script>
+      // Q 1.
+      // let multiply = (num1, num2)=> num1 * num2;;
+      // console.log(multiply(27,30));
+      // Q 2.
+      // let msg = () => console.log("Hello World!");
+      // let runTwice = (inputfunction) => {
+      //   inputfunction();
+      //   inputfunction();
+      // };
+      // runTwice(msg);
+      // Q 3.
+
+      function sizedouble() {
+        let buttonElemet = document.querySelector("#id");
+        buttonElemet.classList.add("js-size-double");
+      }
+    </script>
+  </body>
+</html>

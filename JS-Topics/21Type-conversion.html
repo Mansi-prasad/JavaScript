@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Type Conversion</title>
+  </head>
+  <body>
+    <script>
+      // variables can be converted to a new variable and another data type:-
+      // 1). By using JS function
+      // 2). Automatically by JavaScript itself
+      // We can
+      // 1. Converting Strings to Numbers
+      let name = "Mansi";
+      let roll = "1";
+      console.log("Type of roll: ", typeof roll);
+      console.log(Number(name)); //NaN
+      console.log("Type of roll: ", typeof Number(roll));
+      console.log("Type of roll: ", typeof parseFloat(roll));
+      console.log("roll = ", roll);
+      console.log("Type of roll: ", typeof parseInt(roll));
+      console.log("roll = ", roll);
+      // unary + operator can be used to convert a variable to a number:
+      let x = "10";
+      let y = +x;
+      console.log("y= ", y);
+      console.log(typeof y);
+
+      // 2. Converting Numbers to Strings
+      // global method String() can convert numbers to strings.
+      let num = 647;
+      console.log("type of num : ", typeof String(num));
+      // 3. Converting Dates to Numbers
+      let date = new Date();
+      console.log("date: ", Number(date));
+
+      // 4. Converting dates to String
+      console.log("date : ", String(date));
+      console.log("date : ", date.toString());
+      console.log("type of date : ", typeof date);
+      // 5. Converting Booleans to Numbers
+      let bool = true;
+      console.log("type of bool: ", Number(bool));
+      // 6. Converting Booleans to String
+      console.log("type of false: ",typeof String(false));
+      // 7. Converting Numbers to Booleans
+      console.log("type of 100: ",typeof Boolean(100));
+
+
+
+      // Automatic Type Conversion
+      // When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type.
+      let n=10;
+      n=n+null;//null is converted to 0
+      console.log(typeof n, n);
+      n=n+"2";  //"2" is concatenated with 10
+      console.log(typeof n, n);
+      console.log("5"*"5"); //25
+      console.log("5"-3);   //2
+      console.log(5-"3"); //2
+    </script>
+  </body>
+</html>

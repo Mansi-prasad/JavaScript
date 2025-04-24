@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stopwatch">
+      <h1 id="show-time">00:00:00</h1>
+      <div class="buttons">
+        <img src="images/stop.png" alt="" onclick="stopWatch()" />
+        <img src="images/start.png" alt="" onclick="startWatch()" />
+        <img src="images/reset.png" alt="" onclick="resetWatch()" />
+      </div>
+    </div>
+    <script>
+      let [hours, minutes, seconds] = [0, 0, 0];
+      let showTime = document.getElementById("show-time");
+      let timer = null;
+
+      let stopwatch = () => {
+        seconds++;
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes == 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+        let h = hours < 10 ? "0" + hours : hours;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+        let s = seconds < 10 ? "0" + seconds : seconds;
+        showTime.innerHTML = h + ":" + m + ":" + s;
+      };
+      let startWatch = () => {
+        if (timer !== null) {
+          clearInterval(timer);
+        }
+        timer = setInterval(stopwatch, 1000);
+      };
+
+      let stopWatch = () => {
+        clearInterval(timer);
+      };
+      let resetWatch = () => {
+        clearInterval(timer);
+        [hours, minutes, seconds] = [0, 0, 0];
+        showTime.innerHTML = "00:00:00";
+      };
+    </script>
+  </body>
+</html>

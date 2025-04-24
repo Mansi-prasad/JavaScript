@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Errors</title>
+  </head>
+  <body>
+    <p>Please enter a number between 10 and 20:</p>
+    <input type="text" id="input1" /><input
+      type="submit"
+      value="Test"
+      id=""
+      onclick="check();"
+    />
+    <p id="res1"></p>
+
+    <script>
+      function check() {
+        let input = document.getElementById("input1").value;
+        let res = document.getElementById("res1");
+        res.innerHTML = "";
+        try {
+          if (input.trim() == "") throw "empty";
+          if (isNaN(input)) throw "not a number";
+          input = Number(input);
+          if (input < 10) throw "low value";
+          if (input > 20) throw "high value";
+          else {
+            throw "successfully!";
+          }
+        } catch (err) {
+          res.innerHTML = "Input is " + err;
+        }
+      }
+    </script>
+    <script>
+      // We can handle errors
+      // 1.Try...Catch...Finally
+      // Errors can be coding errors made by the programmer, errors due to wrong input, and other unforeseeable things.
+
+      // let name = prompt("Enter Your name: ");
+      // try {
+      //   if (name == "Mansi") {
+      //     adddlert("Thank you!"); //JS catches adddlert as an error, and executes the catch code to handle it.
+      //   }
+      //   alert("Visit again");
+      // } catch (err) {
+      //   alert("Please enter another name");
+      // }
+
+      // 2. JavaScript Throws Errors(will throw an exception or error)---->allows you to create a custom error.
+      // Note: JavaScript will actually create an Error object with two properties: name and message.
+      // name	Sets or returns an error name
+      // message	Sets or returns an error message (a string)
+
+
+      // Error Name Values
+      // Six different values can be returned by the error name property:
+
+      // Error Name	Description
+      // EvalError--->	An error has occurred in the eval() function
+      // RangeError--->	A number "out of range" has occurred
+      // ReferenceError--->	An illegal reference has occurred
+      // SyntaxError--->	A syntax error has occurred
+      // TypeError--->	A type error has occurred
+      // URIError--->	An error in encodeURI() has occurred
+    </script>
+  </body>
+</html>

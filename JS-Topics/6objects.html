@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <h2>Defining objects.</h2>
+    <!-- <script>
+      // 1). creating objects by obj literals.
+      const obj = {
+        name: "Mansi",
+        address: "Vapi, Gujrat",
+        phone: 9546489077,
+      };
+      let Name = obj.name; //using .
+      let Address = obj.address; //using []
+      //accessing properties
+      document.write("My name is: ", Name, " I am from ", Address, "<br>");
+
+      // 2). creating obj using new keyword.
+      const obj2 = new Object();
+      obj2.rollno = 1;
+      obj2.seatno = 1818;
+      obj2.Address = "vapi";
+      // deleting address property
+      delete obj2[Address];
+      document.write(obj2[Address]);
+
+      // 3). creating obj using object constructor function.
+      function member(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+      }
+      //creating two objs on the above prototype.
+      const member1 = new member("Hari Prasad ", 45, " male");
+      const member2 = new member("Rumi Prasad", 36, " female");
+      //accessing property of objects using .(period) operator.
+      document.write("<br> My father is ", member1.age, " years old.");
+      document.write("My mother is ", member2.age, " years old.");
+
+      //nested objects
+      const obj4 = {
+        name: "Mansi",
+        age: 20,
+        address: {
+          address1: "Vapi",
+          address2: "Siwan",
+          address3: "Jamo",
+        },
+      };
+      document.write("<br> My 2nd address is : ", obj4.address.address2);
+    </script> -->
+
+    <h2>Object Methods.</h2>
+    <!-- <script>
+      // method is a function definition stored as a property value.
+      const details = {
+        firstname: "Mansi",
+        lastname: "Prasad",
+        address: "Vapi",
+        fullname: function () {
+          return this.firstname + this.lastname;
+        },
+      };
+      //accessing obj method
+      document.write("My full Name is : ", details.fullname());
+    </script> -->
+
+    <h2>Display objects</h2>
+    <script>
+      const obj = {
+        Name: "Mansi",
+        Address: "Vapi,",
+        phone: 9546489077,
+      };
+      // 1). properties of an object can be displayed as a string
+      document.write(obj.Name, obj.Address, obj.phone);
+      // 2). properties of an object can be collected in a loop
+      let objval = "";
+      for (const x in obj) {
+        (objval += obj[x]), ",";
+      }
+      document.write("<br>", objval);
+
+      // 3). using object.values()===>  creates an array from the property values.
+      const arr = Object.values(obj);
+      document.write("<br>", arr);
+
+      //  4). Using JSON.stringify()
+      let object_values = JSON.stringify(obj);
+      document.write("<br>", object_values);
+    </script>
+  </body>
+</html>

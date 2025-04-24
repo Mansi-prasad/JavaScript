@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Modules</title>
+  </head>
+  <body>
+    <script type="module">
+      //JS Modules allow us to break up the code into separate files.
+      // This makes it easier to maintain a code-base.
+      // Modules are imported from external files with the import statement.
+      // Modules also rely on type="module" in the <script> tag.
+
+      // export
+
+      // Modules with functions or variables can be stored in any external file.
+      // There are two types of exports:
+      // 1.Named Exports Example:--
+      // inline ---> export const name = "Jesse";
+      // all at once----> export {name, age};
+      // 2. Default Exports(can only have one default export in a file.).
+      // export default message;
+
+      //import
+      // import modules into a file in two ways, based on if they are named exports or default exports.
+
+      // 1.  Import from named exports
+      // ex:- import { name, age } from "./person.js";
+      // 2. Import from default exports
+      // import message from "./message.js";
+
+      import { name, roll } from "./details.js";
+      console.log(`Student name is ${name} and roll is ${roll}`);
+
+      //importing default exports student from 31classes.html
+      import student from "./details.js";
+      const stud2 = new student("Mitanshi", 12);
+    </script>
+  </body>
+</html>

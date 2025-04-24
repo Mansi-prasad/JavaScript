@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      // JavaScript will use the browser's time zone and display a date as a full text string:
+      // Date objects are created with the new Date() constructor using 9 ways.
+      //       new Date()
+      const date = new Date();
+      console.log(date);
+      //       new Date(year,month,day)
+
+      //       new Date(year,month,day,hours,minutes)
+      //       new Date(year,month,day,hours,minutes,seconds)
+      //       new Date(year,month,day,hours,minutes,seconds,ms)
+      //       new Date(milliseconds)
+      //       new Date(date string)
+      console.log(new Date("march 06,2004 02:10:10"));
+      //       new Date(year,month)
+      console.log(new Date(2025, 11, 12, 10, 30, 10));
+      //       new Date(year,month,day,hours)
+      console.log(new Date(2024, 2, 6, 2, 10, 10));
+      //       new Date(milliseconds)
+      // JavaScript stores dates as number of milliseconds since January 01, 1970.
+      console.log(new Date(34000000000));
+
+      //Date Methods.
+      // 1). tostring()
+      //  When you display a date object in HTML, it is automatically converted to a string, with the toString() method.
+      const date_value = new Date();
+      date_value.toString();
+      console.log("date: ", date_value);
+      // 2). toDateString() method converts a date to a more readable format:
+      const date2 = new Date();
+      date2.toDateString();
+      console.log("date: ", date2);
+    </script>
+
+    <script>
+      // Date format
+      // There are generally 3 types of JavaScript date input formats:
+      //   ISO Date	"2015-03-25" (The International Standard)
+      // Short Date	"03/25/2015"
+      // Long Date	"Mar 25 2015" or "25 Mar 2015"
+
+      // 1). ISO Dates  syntax (YYYY-MM-DD)
+      console.log("Date=", new Date("2004-03-06")); //we can also use only year and month, year.
+
+      // ISO Dates (Date-Time)  (YYYY-MM-DDTHH:MM:SSZ):
+      console.log(new Date("2015-03-25T12:00:00Z"));
+
+      // 2). Short dates are written with an "MM/DD/YYYY"
+      console.log(new Date("03/25/2015")); //months or days with no leading zeroes may produce an error
+
+      // 3). Long dates are most often written with a "MMM DD YYYY" syntax
+      console.log(new Date("Mar,06,2004")); //Month and day can be in any order
+
+      // Parsing Dates
+      // you can use the Date.parse() method to convert valid date string to milliseconds it returns the number of milliseconds between the date and 1 jan 1970.
+      let date3 = new Date();
+      console.log("Date3 in milliseconds : ", Date.parse(date3));
+    </script>
+
+    <script>
+      // Get Date Methods
+      //   getFullYear()	Get year as a four digit number (yyyy)
+      // getMonth()	Get month as a number (0-11)
+      // getDate()	Get day as a number (1-31)
+      // getDay()	Get weekday as a number (0-6)
+      // getHours()	Get hour (0-23)
+      // getMinutes()	Get minute (0-59)
+      // getSeconds()	Get second (0-59)
+      // getMilliseconds()	Get millisecond (0-999)
+      // getTime()	Get time (milliseconds since January 1, 1970)
+      let date_val = new Date();
+      console.log("current year: ", date_val.getFullYear());
+      console.log("current Month: ", date_val.getMonth());
+      console.log("current Date: ", date_val.getDate());
+      console.log("current Hours: ", date_val.getHours());
+      console.log("current Minutes: ", date_val.getMinutes());
+      console.log("current Second: ", date_val.getSeconds());
+      console.log("current Milliseconds: ", date_val.getMilliseconds());
+      console.log("current Weekday: ", date_val.getDay());
+      console.log(
+        "current number of milliseconds since January 1, 1970: ",
+        date_val.getTime()
+      );
+      console.log(
+        "current number of milliseconds since January 1, 1970: ",
+        Date.now()
+      );
+    </script>
+
+    <script>
+      // JavaScript Set Date Methods
+      //   setDate()	Set the day as a number (1-31)
+      // setFullYear()	Set the year (optionally month and day)
+      // setHours()	Set the hour (0-23)
+      // setMilliseconds()	Set the milliseconds (0-999)
+      // setMinutes()	Set the minutes (0-59)
+      // setMonth()	Set the month (0-11)
+      // setSeconds()	Set the seconds (0-59)
+      // setTime()	Set the time (milliseconds since January 1, 1970)
+
+      date_val.setFullYear(2025);
+      console.log("set year: ", date_val);
+
+      date_val.setMonth(11);
+      console.log("set year: ", date_val);
+
+      date_val.setDate(12);
+      console.log("set year: ", date_val);
+
+      date_val.setHours(2);
+      console.log("set year: ", date_val);
+
+      date_val.setMinutes(30);
+      console.log("set year: ", date_val);
+
+      date_val.setSeconds(200);
+      console.log("set year: ", date_val);
+
+      date_val.setMilliseconds(2);
+      console.log("set year: ", date_val);
+
+
+      </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Arrow Function</title>
+  </head>
+  <body>
+    <button id="btn">click</button>
+    <p class="res"></p>
+    <script>
+      // Arrow functions allow us to write shorter function syntax:
+      // before Arrow function
+      let hello;
+      hello = function () {
+        console.log("Hello World!");
+      };
+      hello();
+
+      //After Arrow Function
+      hello = () => {
+        console.log("Hello World!");
+      };
+      hello();
+
+      // If the function has only one statement, and the statement returns a value, We can remove the brackets and the return keyword:
+      hello = () => "Hello World!"; //Return Value by Default
+      console.log(hello());
+
+      // If We have parameters, We pass them inside the parentheses:
+      let add = (x, y) => {
+        console.log("add= ", x + y);
+      };
+      add(12, 12);
+
+      // if We have only one parameter, We can skip the parentheses as well
+      let num = (n) => {
+        console.log("para= ", n);
+      };
+      num(647);
+
+      // The handling of this is also different in arrow functions compared to regular functions.
+      // 1.  The handling of this is also different in arrow functions compared to regular functions.
+      // 2. With an arrow function this represents the owner of the function:
+      // let btn = document.querySelector("#btn");
+      let msg = "";
+      msg = () => {
+        document.getElementsByClassName("res").innerHTML += this;
+      };
+      //The window object calls the function:
+      window.addEventListener("load", msg);
+
+      //A button object calls the function:
+      document.getElementById("btn").addEventListener("click", msg);
+    </script>
+  </body>
+</html>

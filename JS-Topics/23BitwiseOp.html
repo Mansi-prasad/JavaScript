@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitwise Operator</title>
+  </head>
+  <body>
+    <script>
+      // Bitwise Operations
+      // 1. Bitwise AND ( performed on a pair of bits, it returns 1 if both bits are 1).
+      // 0 & 0	0
+      // 0 & 1	0
+      // 1 & 0	0
+      // 1 & 1	1
+      console.log("4 & 5=", 4 & 5);
+      // Bitwise OR (performed on a pair of bits, it returns 1 if one of the bits is 1).
+      // 0 | 0	0
+      // 0 | 1	1
+      // 1 | 0	1
+      // 1 | 1	1
+      console.log("4 | 5=", 4 | 5);
+      // Bitwise XOR (it returns 1 if the bits are different).
+      // 0 ^ 0	0
+      // 0 ^ 1	1
+      // 1 ^ 0	1
+      // 1 ^ 1	0
+      console.log("4 ^ 5=", 4 ^ 5);
+      // Bitwise NOT (~) interchange the bit from 0 to 1 and 1 to 0.
+      console.log("~4 = ", ~4);
+
+      // JavaScript (Zero Fill) Bitwise Left Shift (<<)
+      // One or more zero bits are pushed in from the right, and the leftmost bits fall off:
+      console.log("5 << 1 : ", 5 << 1);
+
+      // JavaScript (Sign Preserving) Bitwise Right Shift (>>)
+      // Copies of the leftmost bit are pushed in from the left, and the rightmost bits fall off:
+      console.log("5 >> 1 : ", 5 >> 1);
+
+      // JavaScript (Zero Fill) Right Shift (>>>)
+      // One or more zero bits are pushed in from the left, and the rightmost bits fall off:
+      console.log("5 >>> 1 : ", 5 >>> 1);
+
+      // Converting Decimal to Binary
+      const decimalTobinary = (dec) => {
+        return (dec >>> 0).toString(2);
+      };
+      console.log(decimalTobinary(9));
+
+      // Converting Binary to Decimal
+      const binaryTodecimal = (bin) => {
+        return parseInt(bin, 2).toString(10);
+      };
+      console.log(binaryTodecimal(1001));
+    </script>
+  </body>
+</html>

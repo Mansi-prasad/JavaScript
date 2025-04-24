@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+  </head>
+  <body>
+    <p>events are "things" that happen to HTML elements.</p>
+    <pre> element_name event_name="action"</pre>
+    <div
+      id="box"
+      style="height: 200px; width: 200px; background-color: blueviolet"
+      onmouseenter="alert('mouse is on the box.')"
+      onmouseleave="alert('mouse leaves the box.')"
+    >
+      box
+    </div>
+    <br />
+    <button id="btn1">click</button>
+    <!-- <script>
+      btn1 = document.querySelector("#btn1");
+      btn1.onclick = (e) => {
+        let name = prompt("Hey,what's your name?");
+        // document.write("hello ", name); //this statement replace from all the elements of page.
+        alert("Hello", name);
+        // finding event object.
+        console.log("type of event : ", e.type);
+        console.log("event target : ", e.target);
+        console.log("Position where event occure : ", e.clientX, e.clientY);
+        // console.log(e);
+      };
+      
+
+      
+    </script> -->
+    <script>
+      // we can handle events by three ways
+      // 1). inline handling--- >makes code bulky.
+      // 2). using node.event_name----->we can use one function to handle event at a time and second time it will overwrite the function.
+      // 3). using event listeners-----> we can use multiple event listener for a single node.
+      btn1 = document.querySelector("#btn1");
+      btn1.addEventListener("click", () => {
+        console.log("btn was clicked by ---event1");
+      });
+      const event2 = () => {
+        console.log("btn was clicked by ---event2");
+      };
+      btn1.addEventListener("click", event2);
+      btn1.removeEventListener("click", event2);
+      btn1.addEventListener("click", () => {
+        console.log("btn was clicked by ---event3");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional statements</title>
+  </head>
+  <body>
+    <script>
+      //if....else if..ladder
+      let marks = 98;
+      if (marks >= 70 && marks < 100) {
+        console.log("Grade A+");
+      } else if (marks >= 50 && marks < 70) {
+        console.log("Grade A");
+      } else if (marks >= 30 && marks < 50) {
+        console.log("Grade B");
+      } else {
+        console.log("Grade C");
+      }
+      //switch case statement
+      const week_day = new Date().getDay();
+      switch (week_day) {
+        case 0:
+          console.log("It is sunday today.");
+          break;
+        case 1:
+          console.log("It is Monday today.");
+          break;
+        case 2:
+          console.log("It is Tuesday today.");
+          break;
+        case 3:
+          console.log("It is Wednesday today.");
+          break;
+        case 4:
+          console.log("It is Thursday today.");
+          break;
+        case 5:
+          console.log("It is Friday today.");
+          break;
+        case 6:
+          console.log("It is Saturday today.");
+          break;
+          default:console.log("not a valid week day.");
+      }
+    </script>
+  </body>
+</html>

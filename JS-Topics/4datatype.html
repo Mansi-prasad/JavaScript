@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Type</title>
+  </head>
+  <body>
+    <h2>8 types of Data types.</h2>
+    <script>
+      let num1 = 647;
+      document.write("<br>typeof ", num1, " : ", typeof num1);
+      let name = "Mansi";
+      document.write("<br>typeof ", name, " : ", typeof name);
+      let result = true;
+      document.write("<br>typeof ", result, " : ", typeof result);
+      let address;
+      document.write("<br>typeof ", address, " : ", typeof address);
+      //let biginteger = 1222334655546465n;
+      let biginteger = BigInt(4353542442453434);
+      document.write("<br>typeof ", biginteger, " : ", typeof biginteger);
+      let age = null; // It is supposed to be something that doesn't exist.
+      document.write("<br>typeof ", age, " : ", typeof age);
+      let obj = {
+        name: "Mansi",
+        address: "Vapi",
+        Marks: 647,
+      };
+      document.write("<br>typeof ", obj, " : ", typeof obj);
+      //symbol() are used to define unique values
+      let id = Symbol("123"); //symbol makes the value different or unique
+      let anotherId = Symbol("123");
+      console.log("can same value symbols are same :", id == anotherId);
+      //typeof operator --->returns the data type of a JavaScript variable.
+      console.log("typeof Mansi: ", typeof "Mansi");
+      console.log("typeof 647: ", typeof 647);
+      console.log("typeof true: ", typeof true);
+      console.log("typeof Null: ", typeof null); // object.
+      const obj1 = {};
+      console.log("typeof obj1: ", typeof obj1);
+      const array1 = [];
+      console.log("typeof array1: ", typeof array1);
+      let big_int = BigInt(12332343433323);
+      console.log("typeof big_int: ", typeof big_int);
+      console.log("Type of function : ", typeof function fun() {});
+
+      // Note: typeof operator(Map,Set,array,objects) returns object for all types of objects:
+
+      // Note: typeof of an undefined variable is undefined
+      console.log(typeof Name);
+      let a = " ";
+      console.log(typeof a); //string.
+
+      // constructor Property--->returns the constructor function for all JavaScript variables.
+      const myname = "Mansi";
+      console.log(myname.constructor);
+    </script>
+    <!-- void Operator---  evaluates an expression and returns undefined.  -->
+    <br /><br />
+    <a href="javascript:void(0);">useless link</a><br /><br />
+    <a href="javascript:void(document.body.style.background='green');"
+      >click to change background color</a
+    >
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript scope</title>
+  </head>
+  <body>
+    <script>
+      //  Scope determines the accessibility (visibility) of variables.
+      // JavaScript variables have 3 types of scope:
+
+      // 1.  Block scope
+      // let and const provide Block Scope in JavaScript
+      // Note: var keyword can not have block scope.
+      {
+        let x = 10; //cannot access out side the block.
+        const pi = 3.14; //cannot access out side the block.
+        console.log("x= ", x);
+        console.log("pi= ", pi);
+      }
+
+      // 2. Function scope
+      // Each function creates a new scope.
+      // Variables declared with var, let and const are quite similar when declared inside a function.
+      function fun() {
+        let l = 12;
+        const pi = 3.14;
+        var b = 10; //outside the function cannot be accessible and it can change the global variable.
+        console.log("\nl= ", l);
+        console.log("pi= ", pi);
+        console.log("b= ", b);
+      }
+      //call function.
+      fun();
+
+      // 3. Global scope(Global variables can be accessed from anywhere in a JavaScript program.Variables declared with var, let and const are quite similar when declared outside a block.)
+
+      let name = "Mansi"; // a global variable , All scripts and functions on a web page can access it.
+      function print_name() {
+        console.log(name);
+      }
+      print_name();
+
+      // Note: Automatically Global
+      // If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.
+      details();
+      function details() {
+        college = "R.K College";
+      }
+      console.log(college);
+
+
+      // Strict Mode
+      // undeclared variables are not automatically global.
+      
+    </script>
+  </body>
+</html>

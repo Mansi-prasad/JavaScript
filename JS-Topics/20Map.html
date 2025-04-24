@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascripts Maps</title>
+  </head>
+  <body>
+    <script>
+      // A Map holds key-value pairs where the keys can be any datatype.
+      // Creating maps.
+      // 1. Passing an Array to new Map()
+      const map1 = new Map([
+        [1, "Mansi"],
+        [2, "Mohit"],
+        [3, "Mitanshi"],
+        [4, "Manish"],
+      ]);
+      // 2. Create a Map and can add elements to a Map with the set() method:
+      const map2 = new Map();
+      map2.set("stud1", 1);
+      map2.set("stud2", 2);
+      map2.set("stud3", 3);
+      console.log(map2);
+      console.log(typeof map1); //maps are objects.
+      // Map Methods.
+      // 1. new Map()
+      // 2. set()---> add elements to a Map with the set() method:
+      // 3. get() method gets the value of a key in a Map
+      console.log("Value of stud1 key : ", map2.get("stud1"));
+      // 4. size property returns the number of elements in a map
+      console.log("size of map2 : ", map2.size);
+      // 5. delete() method removes a map element
+      map2.delete("stud3");
+      console.log("Map2 after deleted element : ", map2);
+      // 6. clear() method removes all the elements from a map:
+      map2.clear();
+      console.log(map2);
+      const map3 = new Map([
+        [1, "Happy"],
+        [2, "Lucky"],
+        [3, "Mohit"],
+      ]);
+      // 7.  has() method returns true if a key exists in a map:
+      console.log("map3 has key 3 : ", map3.has(3));
+      //  8. forEach() method invokes a callback for each key/value pair in a map:
+      let res = "";
+      map3.forEach(function (value) {
+        res += "Hello " + value + "\n";
+      });
+      console.log(res);
+      // 9. entries() method returns an iterator object with the [key,values] in a map:
+      const key_value = map3.entries();
+      console.log(key_value);
+      let key_value_entry = "";
+      key_value.forEach(function (value) {
+        key_value_entry += value + "\n";
+      });
+      console.log(key_value_entry);
+      // 10. keys() method returns an iterator object with the keys in a map
+      const map_keys = map3.keys();
+      console.log(map_keys); // we can iterate over this object.
+      let key = "";
+      map_keys.forEach((value) => {
+        key += value + " ";
+      });
+      console.log("Keys of map3: ", key);
+      // 11. values() method returns an iterator object with the values in a map:
+      console.log(map3.values()); // we can iterate over this object.
+      // 12. ES2024 added the Map.groupBy() method to JavaScript.
+      // Map.groupBy() method groups elements of an object according to string values returned from a callback function(does not change the original object).
+      const student = [
+        { Name: "Manish", roll: 1 },
+        { Name: "Mansi", roll: 2 },
+      ];
+      function myfun({ Name }) {
+        return "Hello " + Name;
+      }
+      const result = Map.groupBy(student, myfun);
+      console.log("Grouped elements=", result);
+      // Note: Being able to use objects as keys is an important Map feature.
+      //Create Objects.
+      const obj1 = { Name: "Mansi" };
+      const obj2 = { Name: "Mohit" };
+      const obj3 = { Name: "Mitanshi" };
+      //Creating map
+      const students = new Map();
+      students.set(obj1, 101);
+      students.set(obj2, 102);
+      students.set(obj3, 103);
+      console.log(students);
+      console.log(students.get(obj1));
+      // Note: Object.groupBy() groups elements into a JavaScript object.
+      // Map.groupBy() groups elements into a Map object.
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Classes</title>
+  </head>
+  <body>
+    <script>
+      // JavaScript Classes are templates for JavaScript Objects.
+      // Use the keyword class to create a class.
+      // Always add a method named constructor():
+      // The constructor method is called automatically when a new object is created(used to initialize object properties).
+      // If you do not define a constructor method, JavaScript will add an empty constructor method.
+
+      class Student {
+        constructor(name, roll) {
+          console.log(`Student roll no is ${roll} and name is ${name}.`);
+        }
+      }
+      const obj = new Student("Mansi", 11);
+
+      // Class Methods.
+      // Class methods are created with the same syntax as object methods.
+      class calc {
+        // constructor() {
+
+        // }
+        Addition = (x, y) => {
+          return x + y;
+        };
+      }
+      const obj1 = new calc();
+      console.log(obj1.Addition(11, 11));
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Basics</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" placeholder="demo" />
+    </form>
+    <div>
+      <h1 id="heading1" class="heading">DOM Concept</h1>
+      <h2>
+        The DOM is a tree of nodes (document → elements → attributes → text →
+        comments) connected to the browser window.
+      </h2>
+      <ul>
+        <li>Element Node: Represents an HTML tag in the page.</li>
+        <li>
+          Text Node: Represents the text inside an element(with Spaces and new
+          lines )
+        </li>
+        <li>Comment Node: Represents a comment in the HTML.</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // Document- Represents the whole webpage. we can use it to select or create elements.
+    //Common Properties:
+    console.log("title: ", document.title); //get/set page title
+    console.log("URL: ", document.URL); // get the page URL
+    console.log("body: ", document.body); // access <body>
+    console.log("forms: ", document.forms); // all <form> elements in htmlcollection
+    // common Methods
+    console.log("access element by ID: ", document.getElementById("heading1")); //return single element
+    console.log(
+      "access element by class name",
+      document.getElementsByClassName("heading")
+    ); // return htmlCollection
+    console.log(
+      "access element by class name",
+      document.querySelector(".heading")
+    ); // return single element
+    console.log("access element by tag name", document.querySelectorAll("li")); // return nodeList
+    const p = console.log("creating element: ", document.createElement("p")); // create empty p tag in memeory
+  </script>
+</html>

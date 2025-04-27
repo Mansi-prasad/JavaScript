@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Concept</title>
+  </head>
+  <body>
+    <!-- when the web page is loaded, the browser creates a Document object Model of the page -->
+    <!-- window(global obj) is a browser's object, automatically created by browser.(combination of text node, comment and elements) -->
+    <div>
+      <h1 id="heading1">
+        DOM Concept <span>in JS</span>
+        <span style="display: none">hidden text</span>
+      </h1>
+      <h1>with DOM Manipulation</h1>
+      <p class="para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, error
+        iusto! Nihil suscipit reiciendis ipsum tempora. Ducimus, recusandae!
+        Commodi, sit.
+      </p>
+      <p class="para"></p>
+    </div>
+    <div>
+      <h1>Document Properties</h1>
+      <ul>
+        <li>tagName: return tags for element nodes</li>
+        <li>
+          innerText: return the text content of the element and its children
+        </li>
+        <li>
+          innerHTML: return the plain text or html contents in the element
+        </li>
+        <li>textContent: return textual content even for hidden elements.</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // DOM Concept
+    //console.log() method prints out a toString representation of the object
+    //console.log(window); // it has properties and methods
+    //console.log(window.document); // document model of html
+    //console.log(document.head);
+    //console.dir(); //output the list of object properties of a specified object
+    // DOM Manipulation
+    // 1. access elements based on id
+    let heading = document.getElementById("heading1");
+    console.log(heading); //return heading element(null if id not defined)
+    // 2. access elements based on class name
+    let paragraph = document.getElementsByClassName("para");
+    console.log(paragraph); //return html collection(similar to array)
+    // 3. access elements based on tag name
+    let headings = document.getElementsByTagName("h1");
+    console.log(headings); //return html collection
+    // 4. access elements based on their className,tag and Id by querySelector(return nodeList)
+    const firstPara = document.querySelector("p"); //return the 1st paragraph in the form of nodeList
+    console.log(firstPara);
+    const paras = document.querySelectorAll("p"); //return all the paragraphs
+    console.log(paras);
+    console.log(document.querySelector("#heading1")); // by the id (does not support querySelectorAll)
+    console.log(document.querySelectorAll(".para")); // by the class name
+
+    // Properties to access element and change their values
+    console.log("tagName: ", heading.tagName);
+    console.log("innerText: ", heading.innerText);
+    console.log("innerHTML: ", heading.innerHTML);
+    console.log("textContent: ", heading.textContent);
+    console.log("firstChild: ", heading.firstChild);
+    console.log("lastChild: ", heading.lastChild);
+    console.log("Children: ", heading.children); // retun HTMLCollection
+
+    const nodeList = document.body.childNodes; // returns a collection (list) of an elements's child nodes.
+    console.log("ChildNodes of Body: ", nodeList);
+    console.log(
+      "First childNode of heading : ",
+      heading.childNodes[1].innerText
+    );
+    const collection = document.body.children; //returns a collection of an element's child elements.
+    console.log("Children of Body: ", collection);
+  </script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Element</title>
+    <style>
+      .active {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 id="heading1" class="heading">DOM <span> Elements </span></h1>
+      <p>Represents any HTML element like div, p, etc.</p>
+      <p>You can modify its attributes, text, style, etc.</p>
+      <p class="para1">Lorem ipsum dolor sit.</p>
+      <p class="para2">Lorem, ipsum.</p>
+    </div>
+  </body>
+  <script>
+    // properties
+    const mainHeading = document.querySelector("#heading1");
+    console.log("id: ", mainHeading.id);
+    console.log("className: ", mainHeading.className);
+    console.log("innerText: ", mainHeading.innerHTML); //return only text
+    console.log("style: ", mainHeading.style); // return object
+    mainHeading.style.color = "green";
+    console.log("classList: ", mainHeading.classList.add("active"));
+    console.log("innerHTML: ", mainHeading.innerHTML); // return element with tag
+    console.log("textContent: ", mainHeading.textContent); // return hodden element also
+    console.log("attibutes: ", mainHeading.attributes); // return All attributes
+    console.log("children: ", mainHeading.children); // return All child elements (not text nodes)
+
+    console.log("firstElementChild: ", mainHeading.firstElementChild); //return First child element
+    console.log("lastChild: ", mainHeading.lastElementChild); // return Last child element
+    console.log("Parent element: ", mainHeading.parentElement); // return Parent element
+    console.log("nextElementSibling: ", mainHeading.nextElementSibling); // Next sibling element
+    console.log("previousElementSibling: ", mainHeading.previousElementSibling); // retun Previous sibling element
+
+    // methods
+    console.log("attributes: ", mainHeading.getAttribute("id"));
+
+    mainHeading.setAttribute("name", "main heading of the page");
+
+    console.log(
+      "appending child",
+      mainHeading.appendChild(document.querySelector(".para1"))
+    ); // Add a node at the end
+    console.log(
+      "remove child",
+      mainHeading.removeChild(document.querySelector(".para1"))
+    ); //	Remove a child node
+    mainHeading.removeAttribute("name");
+    //console.log("has a src attribute: ", mainHeading.hasAttribute(src));
+    let newNode = document.querySelector(".para2");
+    console.log("new node: ",newNode);
+    let parent = mainHeading.parentNode;
+    parent.insertBefore(newNode, mainHeading); //Must call insertBefore() on the parent
+    // querySelector()
+    // querySelectorAll()
+  </script>
+</html>

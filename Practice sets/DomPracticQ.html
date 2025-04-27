@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Practice Questions</title>
+    <style>
+      .box-div {
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="heading1">Hello JavaScript</h2>
+    <button id="append-btn">Append text</button>
+    <div class="box-div">box1</div>
+    <div class="box-div">box2</div>
+    <div class="box-div">box3</div>
+    <button id="change-text">Change div contect</button>
+  </body>
+  <script>
+    let appendBtn = document.getElementById("append-btn");
+    appendBtn.addEventListener("click", () => {
+      document.querySelector("#heading1").append(" from RKD.");
+    });
+    let btn = document.querySelector("#change-text");
+    btn.addEventListener("click", () => {
+      let index = 1;
+      let divs = document.querySelectorAll(".box-div");
+      for (div of divs) {
+        div.innerText = `my box ${index}`;
+        index++;
+      }
+      //divs[0].innerText = "my box 1";
+      //divs[1].innerText = "my box 2";
+      //divs[2].innerText = "my box 3";
+    });
+  </script>
+</html>

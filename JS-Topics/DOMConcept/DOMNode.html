@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Node</title>
+  </head>
+  <style>
+    .container {
+      border: 1px solid black;
+      padding: 20px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1 id="heading1" class="heading">DOM <span>Node</span></h1>
+      <p>
+        In the DOM, everything is a Node:(an element, text inside elements,
+        comments, document itself)
+      </p>
+      <p>A Node is a single point in the DOM Tree.</p>
+      <h4>Types of Nodes:</h4>
+      <ul>
+        <li>
+          Element Node: Any HTML tag, It can contain attributes, child elements,
+          and text.
+        </li>
+        <li>Text Node: represents only text inside an element.</li>
+        <li>Comment Node: Comments</li>
+        <li>Document Node: document (entire HTML page)</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // Node Properties
+    const heading1 = document.querySelector("#heading1");
+    const parent = document.querySelector(".container");
+    const textNode = heading1.firstChild;
+    console.log("heading1: ", heading1);
+    console.log("nodeType: ", heading1.nodeType); // Type of node (element, text, etc.) 1 for element node
+    console.log("nodeName: ", heading1.nodeName); // Name of the node (tag name, #text, etc.)
+    console.log("nodeValue: ", textNode.nodeValue); // Content (only for TextNode/Comment)
+    console.log("nodeType of textNode: ", textNode.nodeType); // 3 for textNode
+    console.log("parentNode: ", heading1.parentNode); // Parent of the node
+    console.log("childNodes: ", heading1.childNodes); // return All child nodes (elements + text + comments) in the form of nodeList
+    console.log("firstChild: ", heading1.firstChild); // return First child node
+    console.log("lastChild: ", heading1.lastChild); //retun Last child node
+    console.log("nextSibling: ", heading1.nextSibling);
+    console.log("previousSibling: ", heading1.previousSibling);
+   
+    console.log(
+      "number of child elements in heading1 : ",
+      heading1.childElementCount
+    );
+
+    //Node Methods
+    const newNode = document.createElement("p");
+    newNode.innerText = "lorem retr rsff hdg ";
+    console.log("newNode: ", newNode);
+    console.log("appendChild: ", heading1.appendChild(newNode)); //Add a node as last child
+    // console.log("removeChild: ", heading1.removeChild(newNode)); //	Remove a child node
+    //console.log("replaceChild: ", parent.replaceChild(newNode, heading1));
+
+    console.log("insertBefore: ", parent.insertBefore(newNode, heading1));
+    console.log("check for heading inside parent: ", parent.contains(heading1));
+    console.log("heading1 has childNode: ", heading1.hasChildNodes());
+  </script>
+</html>

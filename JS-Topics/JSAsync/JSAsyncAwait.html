@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Async-Await</h1>
+      <p>
+        It makes asynchronous code look and behave like synchronous code —
+        easier to read and write.
+        <mark
+          >The await keyword can only be used inside an async function.</mark
+        >
+      </p>
+      <p><mark>async and await make promises easier to write</mark></p>
+      <ul>
+        <li>async keyword makes a function always return a Promise.</li>
+        <li>
+          await keyword pauses the function execution until the Promise resolves
+          or rejects.
+        </li>
+        <li>await can only be used inside an async function.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>IIFE: Immediately Invoked Function Expression</h3>
+      <p>
+        IIFE is a function thai is called immediately as soon as it is defined.
+      </p>
+      <pre>
+        (Function)(); //  the function will automatically called where it define.
+      </pre>
+    </div>
+  </body>
+  <script>
+    async function hello() {
+      console.log("Hello ");
+    }
+
+    console.log(hello()); // return a promise
+
+    // used where we need to do one thing then another and so on ..
+    function api() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log("data: ", Math.round(Math.random() * 2));
+          resolve("Success");
+        }, 2000);
+      });
+    }
+    //async function to
+
+    async function loadingData() {
+      console.log("getting data1.......");
+      await api();
+      console.log("getting data2.......");
+      await api();
+      console.log("getting data3.......");
+      await api();
+    }
+    loadingData(); //unnecessary call of function
+
+    //
+  </script>
+</html>

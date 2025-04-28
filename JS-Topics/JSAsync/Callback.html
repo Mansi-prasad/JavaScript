@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Callback</title>
+  </head>
+  <body>
+    <div>
+      <h1>
+        <pre><mark>Async await >> Promise chains >> Callback hell</mark></pre>
+      </h1>
+      <h2>JavaScript Callbacks</h2>
+      <p>
+        callback is a function passed as an argument to another function, which
+        allow a function to call another function.
+      </p>
+      <h3>When to Use a Callback</h3>
+      <p>
+        when you want to execute a function after another function has finished
+        its work, specially when that work is asynchronous
+      </p>
+      <h5>situations where you should use a callback:</h5>
+      <ul>
+        <li>
+          Asynchronous Operations :like fetching data, reading files, or timers
+          don't complete immediately
+          <mark
+            >Functions running in parallel with other functions are called
+            asynchronous</mark
+          >
+        </li>
+        <li>Event Handling:</li>
+        <li>
+          Functional Programming :When you want to transform or filter data
+        </li>
+      </ul>
+      <p>
+        Note: When we pass a function as an argument, remember not to use
+        parenthesis.
+      </p>
+      <h4>Callback Alternatives</h4>
+      <ol>
+        <li>
+          Promises: asynchronus programmes are difficult to write and debug.So,
+          most modern asynchronous JavaScript methods don't use callbacks used
+          Promises instead.
+          <mark>It helps avoid "callback hell" (deeply nested callbacks).</mark>
+        </li>
+        <li>
+          async/await: Built on top of Promises, async/await makes asynchronous
+          code look synchronous and much cleaner.
+        </li>
+        <li>
+          Event Emitters (in Node.js): Instead of callbacks, sometimes an
+          event-driven model is better, especially when multiple listeners need
+          to react.
+        </li>
+      </ol>
+      <h2>Callback Hell</h2>
+      <p>
+        Nested callbacks (pyramid of doom) stacked below one another forming a
+        pyramid structure.(which is difficult to understand and manage.)
+      </p>
+    </div>
+  </body>
+  <script>
+    //Asynchronous Operations
+    function fetchData(callback) {
+      setTimeout(() => {
+        console.log("data fetched!");
+        callback();
+      }, 500);
+    }
+    fetchData(() => {
+      console.log("Now process the data.");
+    });
+
+    // Functional Programming
+    const numbers = [1, 2, 3, 4, 5];
+    const double = numbers.map((num) => num * 2);
+    console.log("new Array: ", double);
+
+    // Customize Behaviour
+    function greetUser(name, callback) {
+      console.log("Hello, ", name);
+      callback();
+    }
+    greetUser("Mansi", () => {
+      console.log("Welcome to the Website.");
+    });
+
+    // CallBack hell
+    function getData(dataID, callback) {
+      setTimeout(() => {
+        if (callback) {
+          callback();
+        }
+        console.log("data: ", dataID);
+      }, 1000);
+    }
+    getData(1, () => {
+      console.log("getting data 1.....");
+      getData(2, () => {
+        console.log("getting data 2.....");
+        getData(3, () => {
+          console.log("getting data 3.....");
+        });
+      });
+    });
+  </script>
+</html>

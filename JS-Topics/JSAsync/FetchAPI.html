@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Fetch API</title>
+  </head>
+  <body>
+    <div>
+      <h1>Fetch API</h1>
+      <!-- doen not reload tha page -->
+      <p>
+        The Fetch API in JavaScript is a modern way to make HTTP requests (like
+        GET, POST, etc.) from the browser to a server. It's used to fetch
+        resources (data, files, etc.) over the network.
+      </p>
+      <p><mark>The Fetch API provides an interface for fetching (sending , receiving) resources.</mark></p>
+      <p>It uses request and response objects</p>
+      <p>fetch(url, options) method is used to fetch a resourse(data). options can be an object where you define http methods(default is GET method)</p>
+      <p>
+        It is built on Promises, making it easier and cleaner to handle
+        asynchronous requests compared to older methods like XMLHttpRequest <mark>(XMLHttpRequest is an older built-in browser API that allows client-side JavaScript to send HTTP or HTTPS requests to a server without refreshing the web page). </mark>
+      </p>
+      <p>
+        fetch() does not reject on HTTP errors (like 404 or 500). You need to
+        check response.ok ourself
+      </p>
+      <p>
+        <mark
+          >An API (Application Programming Interface) is a set of rules that
+          allows different software systems to communicate with each
+          other.</mark
+        >
+        <ul>
+          <li>We (the frontend/browser) make a request.</li>
+          <li>The API (middle layer) processes it.</li>
+          <li>The server responds with the data or result.</li>
+        </ul>
+      </p>
+    </div>
+    <div>
+      <h2>HTTP Verbs(methods)</h2>
+      <ul>
+        <li>GET: requests a representation of the specified resource</li>
+        <li>POST: submits an entity to the specified resource, often causing a change in state or side effects on the server.</li>
+        <li>PUT: replaces all current representations of the target resource with the request content.</li>
+        <li>DELETE: deletes the specified resource.</li>
+        <li>PATCH: applies partial modifications to a resource.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>HTTP response status codes</h2>
+      <p>HTTP response status codes indicate whether a specific HTTP request has been successfully completed.</p>
+      <p><mark>HTTP headers: let the client and the server pass additional information with a message in a request or response.</mark></p>
+    </div>
+    <div>
+      <h1>Cat Image</h1>
+      <img src="" alt="cat image" id="cat-img" width="500px" height="500px">
+    </div>
+  </body>
+  <script>
+   // const URL="https://randomuser.me/api/"
+    const URL="https://api.thecatapi.com/v1/images/search"
+    let img=document.querySelector("#cat-img");
+    // GET request (with async-await)
+    const getData=async ()=>{
+      console.log("Getting user data....");
+      let response= await fetch(URL); //  if fetch method does not accep t the optional parameter then it sends GET request,  return a promise
+      console.log(response); // Data return in json format
+     // need to convert the data in valid jS Object format
+    const data= await response.json(); // return promise
+    console.log(data);
+    //console.log(data[0].url);
+      img.setAttribute("src",data[0].url);
+    }
+    getData();
+
+    // Fetch API with promise chain
+    function getCatData(){
+      fetch(URL).then((res)=>{
+        return res.json();
+      })
+      .then((dat)=>{
+        console.log("Using promise chain :",dat);
+      })
+    }
+    getCatData();
+
+    //POST request
+    const POST_URL="https://jsonplaceholder.typicode.com/posts"// free fake online REST API for testing and prototyping, widely used by developers to simulate HTTP requests (like GET, POST, PUT, DELETE) without needing a real backend.
+    const options={
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json" // tell the server we are sending JSON 
+      },
+      body:JSON.stringify({
+        name: "Mansi Prasad",
+        email:"mansi@gmail.com"
+      })
+    }
+    const PostData= async ()=>{
+      const response= await fetch(POST_URL,options)
+      console.log(response);
+      const data=await response.json();
+      console.log("Getting post data: ",data);
+    }
+    PostData();
+  </script>
+
+</html>

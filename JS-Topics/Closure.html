@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Closure</title>
+  </head>
+  <body>
+    <div>
+      <h1>JS Closure</h1>
+      <pre><mark>Closure={function + lexical scope/ required data/ surrounding state}</mark></pre>
+      <p>
+        A closure is the combination of a function bundled together (enclosed)
+        with references to its surrounding state (the lexical environment).
+      </p>
+      <p>
+        A closure is a function that allows access to variables from its outer
+        function and global variables,
+        <mark>even after the outer function has finished executing.</mark>
+      </p>
+      <p>
+        Closures provide a way to encapsulate private data and create public
+        methods to interact with it.
+      </p>
+
+      <h1>Lexical Scoping</h1>
+      <p>
+        Closures are based on lexical scoping, meaning that a function’s scope
+        is determined by where the function is defined, not where it is
+        executed. This allows inner functions to access variables from their
+        outer function.
+      </p>
+      <h3>Use Cases of Closures</h3>
+      <ol>
+        <li>Data Encapsulation / create Private Variables</li>
+        <li>let us create customized functions.</li>
+        <li>Improve performance by Memoization / Caching</li>
+        <li>Event Handlers / Asynchronous Programming</li>
+      </ol>
+    </div>
+    <button id="btn">Click</button>
+  </body>
+  <script>
+    //Example of closure
+    function outer() {
+      let counter = 0;
+      // inner function is binded by the required data.
+      function inner() {
+        counter++;
+        console.log(counter);
+      }
+      return inner;
+    }
+    const increment = outer(); // return inner and increment is reference of inner function, here even the outer function is executed, counter is not lost.
+    increment(); // increment() still has access to counter through a closure.
+    increment();
+
+    // customized functions
+
+    function createMultiplier(multiplier) {
+      return function (value) {
+        return value * multiplier;
+      };
+    }
+    const double = createMultiplier(2);
+    const triple = createMultiplier(3);
+    console.log(double(5)); //10
+    console.log(triple(5)); //15
+
+    // Event Handlers / Asynchronous Programming
+    function setUpBtnClickLogger() {
+      let btn = document.querySelector("#btn");
+      let count = 0; // acts like a private variable.
+      btn.addEventListener("click", function () {
+        count++; // Accesses count through closure
+        console.log(`Button clicked ${count} times`);
+      });
+    }
+    setUpBtnClickLogger();
+
+    // Closures in Loops
+    for (var i = 0; i < 3; i++) {
+      setTimeout(() => {
+        console.log(i); // return 3,3,3 Because let creates a new scope for each iteration, but var does not.(Fix using let)
+      }, 1000);
+    }
+  </script>
+</html>

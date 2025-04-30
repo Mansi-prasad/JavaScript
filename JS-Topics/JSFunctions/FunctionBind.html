@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Function bind()</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Function bind()</h1>
+      <p>
+        With the bind() method, an object can borrow a method from another
+        object.
+      </p>
+    </div>
+  </body>
+  <script>
+    const user = {
+      name: "Nisha",
+      fullName: function () {
+        return this.name + " " + "Sharma";
+      },
+    };
+    const member = {
+      name: "Archna",
+    };
+    let fullName = user.fullName.bind(member);
+    console.log(fullName());
+  </script>
+</html>

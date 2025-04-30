@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Function call()</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Function call()</h1>
+      <p>
+        With the call() method, you can write a method that can be used on
+        different objects.
+      </p>
+      <p>
+        In JavaScript all functions are object methods.If a function is not a
+        method of a JavaScript object, it is a function of the global object
+      </p>
+      <p>
+        <mark
+          >call() method can be used to invoke (call) a method with an object as
+          an argument (parameter)</mark
+        >
+      </p>
+    </div>
+  </body>
+  <script>
+    const user = {
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      },
+    };
+    const U1 = {
+      firstName: "Mansi",
+      lastName: "Prasad",
+    };
+    const U2 = {
+      firstName: "Archna",
+      lastName: "Sharma",
+    };
+    // With call(), an object can use a method belonging to another object.
+    console.log(user.fullName.call(U1));
+    const Student = {
+      Detail: function (city, phone) {
+        return this.name + " " + city + " " + phone;
+      },
+    };
+    const Student1 = {
+      name: "Archna",
+    };
+    // The call() Method with Arguments
+    let res = Student.Detail.call(Student1, "Vapi", 98766565644);
+    console.log(res);
+  </script>
+</html>

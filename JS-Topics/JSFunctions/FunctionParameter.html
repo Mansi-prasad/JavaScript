@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Parameters</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Function Parameters</h1>
+      <p>
+        A JavaScript function does not perform any checking on parameter values
+        (arguments)
+      </p>
+      <p>
+        <mark
+          >Function parameters are the names listed in the function
+          definition.</mark
+        >
+      </p>
+      <p>
+        <mark
+          >Function arguments are the real values passed to (and received by)
+          the function.</mark
+        >
+      </p>
+      <h3>Parameter Rules</h3>
+      <ul>
+        <li>
+          JavaScript function definitions do not specify data types for
+          parameters.
+        </li>
+        <li>Do not perform type checking on the passed arguments.</li>
+        <li>Do not check the number of arguments received.</li>
+      </ul>
+      <p>
+        If a function is called with missing arguments (less than declared), the
+        missing values are set to undefined.(it is better to assign a default
+        value to the parameter)
+      </p>
+      <h2>Function Rest Parameter</h2>
+      <p>
+        The rest parameter (...) allows a function to treat an indefinite number
+        of arguments as an array
+      </p>
+      <h3><mark>Arguments are Passed by Value</mark></h3>
+      <p>
+        JavaScript arguments are passed by value: The function only gets to know
+        the values, not the argument's locations. If a function changes an
+        argument's value, it does not change the parameter's original value.
+        <mark
+          >Changes to arguments are not visible (reflected) outside the
+          function.
+        </mark>
+      </p>
+      <h3><mark>Objects are Passed by Reference</mark></h3>
+      <p>
+        In JavaScript, object references are values. Because of this, objects
+        will behave like they are passed by reference:
+        <mark
+          >Changes to object properties (and array) are visible (reflected)
+          outside the function.</mark
+        >
+      </p>
+    </div>
+  </body>
+  <script>
+    // Default Parameter Values
+    function myFun(x, y = 10) {
+      return x + y;
+    }
+    console.log(myFun(20)); // only passing x's value
+
+    //Function Rest Parameter
+    function sum(...args) {
+      let sum = 0;
+      for (let arg of args) {
+        sum += arg;
+      }
+      return sum;
+    }
+    let x = sum(12, 12, 45, 78, 98, 80);
+    console.log("Addition: ", x);
+    // Arguments are Passed by Value (Primitives)
+    function changeVal(a) {
+      a = a + 10; // This change is not visible outside
+      console.log("Inside function: ", a);
+    }
+    let num = 5;
+    changeVal(num); //num's value is copied into a, so changes to a don’t affect num.
+    console.log("Outside function: ", num);
+
+    // Objects are Passed by Reference
+    function modifyObj(obj) {
+      obj.val = 99; // The reference to the object is copied, not the object itself. So both obj and myObj point to the same object in memory
+      console.log("Obj inside function: ", obj);
+    }
+    let myObj = { val: 10 };
+    modifyObj(myObj);
+    console.log("obj Outside Function: ", myObj);
+  </script>
+</html>

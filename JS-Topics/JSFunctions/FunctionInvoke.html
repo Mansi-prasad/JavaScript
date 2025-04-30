@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Function Invocation</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Function Invocation</h1>
+      <p>
+        The code inside a function is executed when the function is
+        invoked(called).
+      </p>
+      <p>The function above automatically becomes a window function.</p>
+      <h2>this keyword</h2>
+      <p>In JavaScript, the this keyword refers to an object.</p>
+      <p>It refers to different objects depending on how it is used:</p>
+      <ul>
+        <li>In an object method, this refers to the object</li>
+        <li>
+          In an object method, this refers to the object. Alone, this refers to
+          the global object.
+        </li>
+        <li>In a function, this refers to the global object.</li>
+        <li>In a function, in strict mode, this is undefined.</li>
+        <li>
+          In an event, this refers to the element that received the event.
+        </li>
+        <li>
+          Methods like call(), apply(), and bind() can refer this to any object.
+        </li>
+      </ul>
+      <h3>The Global Object</h3>
+      <p>
+        When a function is called without an owner object, the value of this
+        becomes the global object.
+      </p>
+    </div>
+  </body>
+  <script>
+    function myFun(a, b) {
+      return a * b;
+    }
+    console.log(window.myFun(10, 10)); // same as myFun(10, 10)
+    // global object
+    let x = fun();
+    function fun() {
+      return this;
+    }
+    console.log("x= ", x); // value of this in a global obj is  window obj.
+    // Invoking a Function as a Method
+    const obj = {
+      name: "Mansi",
+      // obj is owner of the function
+      fullName: function () {
+        return this.name + "Prasad"; //  In this case the value of this is obj.
+      },
+    };
+    console.log(obj.fullName());
+    // Invoking a Function with the Constructor
+    function myFunction(arg1, arg2) {
+      this.name = arg1;
+      this.password = arg2;
+    }
+    const myOBJ = new myFunction("Mansi", "mansi123");
+    console.log(myOBJ);
+  </script>
+</html>

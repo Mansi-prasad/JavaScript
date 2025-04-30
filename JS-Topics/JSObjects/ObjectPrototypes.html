@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Prototypes</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Object Prototypes</h1>
+      <p>
+        All JavaScript objects inherit properties and methods from a prototype.
+        <mark
+          >The Object.prototype is on the top of the prototype inheritance
+          chain</mark
+        >
+      </p>
+      <ul>
+        <li>Date objects inherit from Date.prototype</li>
+        <li>Array objects inherit from Array.prototype</li>
+      </ul>
+      <p>
+        Note: To add a new property to an existing object constructor, you must
+        add it to the constructor function
+      </p>
+      <h3>Adding Properties and Methods to Objects:</h3>
+      <ol>
+        <li>Using the prototype Property</li>
+      </ol>
+      <mark
+        >Only modify own prototypes. Never modify the prototypes of
+        standard JavaScript objects.
+      </mark>
+    </div>
+  </body>
+  <script>
+    // Adding Properties and Methods to Objects ( existing objects, to an object constructor )
+
+    // add new property to object constructors using prototype property
+    function User(first, last, address) {
+      this.firstName = first;
+      this.lastName = last;
+      this.address = address;
+    }
+    User.prototype.nationality = "indian";
+    const User1 = new User("Mansi", "Prasad", "Vapi");
+    console.log(User1.nationality);
+    console.log(User1);
+    // add new methods to object constructors using prototype property
+    User.prototype.name = function () {
+      return this.firstName + " " + this.lastName;
+    };
+    const User2 = new User("Archna", "Sharma", "Siwan");
+    console.log(User2.name());
+  </script>
+</html>

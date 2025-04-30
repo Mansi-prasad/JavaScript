@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Objects</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Object</h1>
+      <p>Objects are variables too. But objects can contain many values.</p>
+      <p>It is a common practice to declare objects with the const keyword.</p>
+      <h3>Methods for Defining JavaScript Objects</h3>
+      <ul>
+        <li>Using an Object Literal</li>
+        <li>Using the new Keyword</li>
+        <li>Using an Object Constructor</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    //object literal also called an object initializer.
+    const ob = {}; // empty object
+    const obj = {
+      firstName: "Mansi",
+      secondName: "Prasad",
+    };
+    //access obj property-value
+    console.log(obj.firstName);
+    // Create an empty JavaScript object using new Object()
+    const user = new Object();
+    user.name = "mansi";
+    user.password = "mansi123";
+
+    //accessing obj
+    console.log(user.name);
+
+    //Using an Object Constructor Function-> helps  to create many objects of the same type.
+    function Person(first, last) {
+      //The value of this will become the new object when a new object is created.
+      this.firstName = first;
+      this.lastName = last;
+      this.nationality = "Indian";
+    }
+    const person1 = new Person("john", "doe");
+    console.log(person1.firstName);
+    console.log(person1.nationality);
+  </script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Object Protection</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Object Protection</h1>
+      <p>Protect an object from being changed:</p>
+      <div style="border: 2px solid; width: 500px">
+        <pre>
+          // Prevents re-assignment
+          const car = {type:"Fiat", model:"500", color:"white"};
+
+          // Prevents adding object properties
+          Object.preventExtensions(object)
+
+          // Returns true if properties can be added to an object
+          Object.isExtensible(object)
+
+          // Prevents adding and deleting object properties
+          Object.seal(object)
+
+          // Returns true if object is sealed
+          Object.isSealed(object)
+
+          // Prevents any changes to an object
+          Object.freeze(object)
+
+          // Returns true if object is frozen
+          Object.isFrozen(object)
+        </pre>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 1. using const not re-assign the object
+    const obj = {
+      A: 100,
+      B: 400,
+    };
+    //obj = {C: 300, D: 500, }; // through an error
+    console.log(obj);
+    // 2. method prevents adding properties to an object.
+    // Since arrays are objects, arrays can be prevented from extensions too:
+    Object.preventExtensions(obj);
+    obj.C = 700; // can not add but also it will not through an error
+    console.log(obj);
+    // 3. to check if an object is extensible(can add properties or not), returns true if an object is extensible.
+    let res = Object.isExtensible(obj);
+    console.log("isExtensible: ", res);
+    // 4. method prevents additions or deletions of new properties
+    Object.seal(obj); //will fail silently in non-strict mode
+    // 5.
+    let isSeal = Object.isSealed(obj);
+    console.log(isSeal);
+    let text = "";
+    try {
+      obj.B = 870;
+      text = Object.values(obj);
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(text);
+
+    // 6. method prevents any changes to an object(No modification, addition or deletion )
+    Object.freeze(obj);
+    // 7.
+    let isFrozen = Object.isFrozen(obj);
+    console.log("Is Frozen: ", isFrozen);
+    obj.C = 980;
+    console.log("After freeze: ", obj);
+  </script>
+</html>

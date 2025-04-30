@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Object Properties</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Object Properties</h1>
+      <h3>Object.defineProperty() method can be used to:</h3>
+      <pre>Object.defineProperty(object, property, descriptor)</pre>
+      <ul>
+        <li>Adding a new property to an object</li>
+        <li>Changing property values</li>
+        <li>Changing property metadata</li>
+        <li>Changing object getters and setters</li>
+      </ul>
+      <p>
+        <mark
+          >Note: All properties have a name. In addition they also have a value.
+          The value is one of the property's attributes.</mark
+        >
+      </p>
+    </div>
+  </body>
+  <script>
+    const obj1 = {
+      fruit: "mango",
+      price: 130,
+    };
+    // Object.defineProperty(object, property, descriptor)
+    // 1. Adding a new Property yo an object
+    Object.defineProperty(obj1, "quantity", { value: "1 kg" });
+    console.log(obj1);
+    // 2. adding mutiple properties
+    Object.defineProperties(obj1, {
+      A: { value: 122 },
+      B: { value: 123 },
+    });
+    console.log(obj1);
+    // 3. Changing a Property Value
+    Object.defineProperty(obj1, "price", { value: 100 });
+    console.log(obj1);
+    // 4. List object properties(also list not enumerable) in an array
+    let properties = Object.getOwnPropertyNames(obj1);
+    console.log("Properties: ", properties);
+    // 5. Object.keys() method can: List enumerable object properties
+    console.log("Obj keys: ", Object.keys(obj1));
+    // 6. add Getters and Setters:
+    // define a getter
+    Object.defineProperty(obj1, "FruitWithPrice", {
+      get: function () {
+        return this.fruit + " " + this.price;
+      },
+    });
+    console.log("Fruit with price: ", obj1.FruitWithPrice);
+    // define a setter
+    Object.defineProperty(obj1, "Discount", {
+      set: function (dis) {
+        this.price -= dis;
+      },
+    });
+    // calling setter
+    obj1.Discount = 10;
+    console.log("Fruit with 10/- discount: ", obj1.price);
+  </script>
+</html>

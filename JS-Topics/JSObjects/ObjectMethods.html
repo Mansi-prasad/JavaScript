@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Object Methods</title>
+  </head>
+  <body>
+    <h1>JavaScript Object Methods</h1>
+    <div>
+      <h2>JavaScript Object Methods can be grouped into:</h2>
+      <ul>
+        <li>General Methods</li>
+        <li>Property Management Methods</li>
+        <li>Object Protection Methods</li>
+      </ul>
+    </div>
+    <div style="border: 2px solid; width: 500px">
+      <pre>
+        // Copies properties from a source object to a target object
+        Object.assign(target, source)
+  
+        // Creates an object from an existing object
+        Object.create(object)
+  
+        // Returns an array of the key/value pairs of an object
+        Object.entries(object)
+  
+        // Creates an object from a list of keys/values
+        Object.fromEntries()
+  
+        // Returns an array of the keys of an object
+        Object.keys(object)
+  
+        // Returns an array of the property values of an object
+        Object.values(object)
+  
+        // Groups object elements according to a function
+        Object.groupBy(object, callback)
+      </pre>
+    </div>
+  </body>
+  <script>
+    const obj1 = {
+      fruit: "apple",
+      quantity: "per kg",
+    };
+    const obj2 = {
+      price: 200,
+    };
+    //General Methods
+    // 1.
+    Object.assign(obj1, obj2); //copies properties from one or more source objects to a target object.(target,source)
+    console.log("obj1: ", obj1);
+    // 2.
+    let text = Object.entries(obj1); // returns an array of the key/value pairs in an object.
+    console.log("OBJ Entries: ", text);
+    for (let [fruit, value] of text) {
+      console.log(fruit, ": ", value);
+    }
+
+    const result = [
+      ["M", 230],
+      ["k", 240],
+      ["G", 200],
+    ];
+    // 3.
+    const myObj = Object.fromEntries(result); //creates an object from a list of key/value pairs.
+    console.log(myObj);
+    // 4.
+    let objVal = Object.values(obj1); // returns a single dimension array of the object values
+    console.log("object value: ", objVal);
+    // 5.
+    let ObjKey = Object.keys(obj1); // eturns an array with the keys of an object.
+    console.log("OBJ Keys: ", ObjKey);
+  </script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Object Accessors</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Object Accessors (Getters and Setters)</h1>
+      <p>
+        Getters and setters allow you to define Object Accessors (Computed
+        Properties).
+      </p>
+      <p>Getter uses the get keyword and Setter uses the set Keyword</p>
+      <h3>differences between Function or Getter?</h3>
+      <p>Function-> access as a function: Object.property().</p>
+      <p>
+        Getter-> access as a property: Object.property(also provide a simpler
+        syntax).
+      </p>
+      <p>
+        <mark
+          >JavaScript can secure better data quality when using getters and
+          setters.</mark
+        >
+      </p>
+      <h3>Why Using Getters and Setters :</h3>
+      <ul>
+        <li>It gives simpler syntax</li>
+        <li>It allows equal syntax for properties and methods</li>
+        <li>It can secure better data quality</li>
+        <li>It is useful for doing things behind-the-scenes</li>
+      </ul>
+      <p>
+        <mark
+          >The Object.defineProperty() method can also be used to add Getters
+          and Setters:</mark
+        >
+      </p>
+    </div>
+  </body>
+  <script>
+    // getter and setter
+    const person = {
+      firstName: "Mansi",
+      lastName: "Prasad",
+      address: "",
+      get fullname() {
+        return this.firstName + " " + this.lastName;
+      },
+      set PersonAddress(addr) {
+        this.address = addr;
+      },
+    };
+    const fullname = person.fullname;
+    console.log(fullname);
+    // Set an object property using a setter:
+    person.PersonAddress = "Vapi";
+    console.log(person);
+  </script>
+</html>

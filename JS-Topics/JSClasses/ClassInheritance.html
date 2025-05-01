@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Class Inheritance</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Class Inheritance</h1>
+      <p>
+        Inheritance in JavaScript is a mechanism that allows one object (or
+        class) to access the properties and methods of another.To create a class
+        inheritance, use the extends keyword.
+      </p>
+      <p>
+        Inheritance is useful for code reusability: reuse properties and methods
+        of an existing class when you create a new class.
+      </p>
+      <h2>Types of <mark>Inheritance</mark> in JavaScript:</h2>
+      <ol>
+        <li>
+          Prototype-Based Inheritance (Traditional JavaScript): Before ES6,
+          JavaScript used prototypes for inheritance.
+        </li>
+        <li>
+          Class-Based Inheritance (ES6+): ES6 introduced class syntax, making
+          inheritance more readable.
+        </li>
+      </ol>
+      <h2>Getters and Setters</h2>
+      <p>
+        Classes also allow you to use getters and setters.To add getters and
+        setters in the class, use the get and set keywords.
+      </p>
+      <p>
+        <mark>
+          even if the getter is a method, you do not use parentheses when you
+          want to get the property value. The name of the getter/setter method
+          cannot be the same as the name of the property</mark
+        >
+      </p>
+      <p>
+        It is a good practice to add an underscore character _ before the
+        property name to separate the getter/setter from the actual property
+      </p>
+      <h2>Hoisting</h2>
+      <p>
+        Unlike functions, and other JavaScript declarations, class declarations
+        are not hoisted. That means that you must declare a class before you can
+        use it
+      </p>
+    </div>
+  </body>
+  <script>
+    // class inheritance
+    // The super() method refers to the parent class.
+    class Animal {
+      constructor(type) {
+        this.type = type;
+        console.log(`Animal type: ${this.type}`);
+      }
+      detail() {
+        console.log(`${this.type} animals.`);
+      }
+    }
+    class Elephant extends Animal {
+      constructor(type) {
+        // call the parent's constructor method and gets access to the parent's properties and methods.
+        super(type);
+      }
+      info() {
+        console.log(`${this.type} animals lives in forest.`);
+      }
+    }
+    const w = new Elephant("wild"); // calling the parent constructor
+    w.detail(); // accesing parent class method.
+    w.info(); // accessing own method.
+
+    // Getters and Setters
+    class stud {
+      constructor(name) {
+        this.s_name = name;
+      }
+      get sName() {
+        return this.s_name;
+      }
+      set sName(n) {
+        this.s_name = n;
+      }
+    }
+    const s1 = new stud("Mansi");
+    s1.sName = "Priya"; //setting the name
+    console.log("getting name: ", s1.sName); // no need to use parenthesis
+  </script>
+</html>

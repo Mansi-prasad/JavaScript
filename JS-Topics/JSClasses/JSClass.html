@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Classes</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Classes</h1>
+      <p>ECMAScript 2015 (ES6) introduced JS Classes</p>
+      <p>
+        <mark>JavaScript Classes are templates for JavaScript Objects.</mark>the
+        keyword class to creates a class, Always add a method named
+        constructor().If you do not define a constructor method, JavaScript will
+        add an empty constructor method.
+      </p>
+      <h2>The Constructor Method</h2>
+      <ul>
+        <li>It has to have the exact name "constructor"</li>
+        <li>It is executed automatically when a new object is created</li>
+        <li>It is used to initialize object properties</li>
+      </ul>
+      <h2>Class Methods</h2>
+      <p>Class methods are created with the same syntax as object methods.</p>
+      <h2>"use strict"</h2>
+      <p>
+        The syntax in classes must be written in "strict mode". You will get an
+        error if you do not follow the "strict mode" rules.(function must
+        contain their own variable declaration)
+      </p>
+    </div>
+  </body>
+  <script>
+    // creating a class
+    class Student {
+      //  initial properties: name and roll.
+      // constructor method called automatically when a new object is created.
+      constructor(name, roll) {
+        this.S_name = name;
+        this.S_roll = roll;
+      }
+      // class method
+      detail() {
+        return `Student name: ${this.S_name} and Roll: ${this.S_roll}`;
+      }
+    }
+    // use student class to create student objects
+    const St1 = new Student("Mansi", 1);
+    console.log(St1.S_name);
+    console.log(St1.detail());
+  </script>
+</html>

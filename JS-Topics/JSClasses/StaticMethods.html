@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Static Methods</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Static Methods</h1>
+      <p>
+        <mark>Static methods are functions that belong to a class itself,</mark
+        >, they do not call by instances of the class. You call them on the
+        class directly, not on objects created from the class.
+      </p>
+      <h2>Advantages of Static Methods</h2>
+      <ol>
+        <li>Belong to the class, not individual instances.</li>
+        <li>Cannot access this referring to instance properties.</li>
+        <li>Best used for utility or helper functions.</li>
+        <li>Can be inherited by subclasses.</li>
+        <li>Called directly with the class name: ClassName.method()</li>
+        <li>
+          Can only access other static properties or methods of the class.
+        </li>
+        <li>Cannot override instance methods.</li>
+      </ol>
+    </div>
+  </body>
+  <script>
+    class textClass {
+      constructor(name) {
+        this.name = name;
+      }
+      static msg() {
+        console.log("Hello!");
+      }
+    }
+    const obj = new textClass("test");
+    textClass.msg(); // calling static method on class
+    // If we want to use the object inside the static method, you can send it as a parameter:
+    textClass.msg(obj);
+    class textClass2 extends textClass {}
+    const obj2 = new textClass2();
+    console.log("Calling static method through child class: ");
+    textClass2.msg();
+  </script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Boxes</title>
+    <style>
+      .popup-result {
+        background-color: rgb(213, 235, 235);
+        margin: 20px 0;
+        padding: 15px;
+      }
+      button {
+        background-color: blueviolet;
+        border: none;
+        padding: 10px 15px;
+        color: white;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button onclick="alertBox()">Alert</button>
+      <button onclick="confirmBox()">Confirm</button>
+      <button onclick="promptBox()">Prompt</button>
+    </div>
+    <div class="popup-result">
+      Your response:
+      <span id="res"></span> <br />
+      Your name:
+      <span id="YourName"></span>
+    </div>
+    <div>
+      <h1>JavaScript Popup Boxes</h1>
+      <p>
+        JavaScript has three kind of popup boxes: Alert box, Confirm box, and
+        Prompt box.
+      </p>
+      <ol>
+        <li>Alert Box</li>
+        <p>
+          An alert box is often used if you want to make sure information comes
+          through to the user. When an alert box pops up, the user will have to
+          click "OK" to proceed.
+        </p>
+        <li>Confirm Box</li>
+        <p>
+          A confirm box is often used if you want the user to verify or accept
+          something. When a confirm box pops up, the user will have to click
+          either "OK" or "Cancel" to proceed. If the user clicks "OK", the box
+          returns true. If the user clicks "Cancel", the box returns false.
+        </p>
+        <li>Prompt Box</li>
+        <p>
+          A prompt box is often used if you want the user to input a value
+          before entering a page. When a prompt box pops up, the user will have
+          to click either "OK" or "Cancel" to proceed after entering an input
+          value. If the user clicks "OK" the box returns the input value. If the
+          user clicks "Cancel" the box returns null.
+        </p>
+      </ol>
+    </div>
+  </body>
+  <script>
+    // popup boxes
+    // alert box
+    function alertBox() {
+      window.alert("This is an alert box.");
+    }
+    // confirm box
+    function confirmBox() {
+      let text = window.confirm("Your response!");
+      if (text == false) {
+        document.getElementById("res").innerHTML =
+          "User Cancle the confirmation";
+      } else {
+        document.getElementById("res").innerHTML = text;
+      }
+    }
+    // prompt box
+    function promptBox() {
+      let name = window.prompt("Enter your name");
+      if (name == null || name == "") {
+        document.getElementById("YourName").innerHTML =
+          "User cancle the prompt!";
+      } else {
+        document.getElementById("YourName").innerHTML = name;
+      }
+    }
+  </script>
+</html>

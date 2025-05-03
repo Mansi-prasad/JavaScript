@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Cookies</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Cookies</h1>
+      <p>
+        Cookies let us store user information in web pages. Cookies are data,
+        stored in small text files, on our computer.
+      </p>
+      <p>
+        When a web server has sent a web page to a browser, the connection is
+        shut down, and the server forgets everything about the user. Cookies
+        were invented to solve the problem "how to remember information about
+        the user":
+      </p>
+      <ul>
+        <li>
+          When a user visits a web page, his/her name can be stored in a cookie.
+        </li>
+        <li>
+          Next time the user visits the page, the cookie "remembers" his/her
+          name.
+        </li>
+      </ul>
+      <p>Cookies are saved in name-value pairs</p>
+      <p>
+        When a browser requests a web page from a server, cookies belonging to
+        the page are added to the request. This way the server gets the
+        necessary data to "remember" information about users.
+      </p>
+    </div>
+    <div>
+      <h2>Create a Cookie with JavaScript</h2>
+      <p>
+        <mark
+          >JavaScript can create, read, and delete cookies with the
+          document.cookie property.</mark
+        >
+        <pre> document.cookie =
+          "username= Mansi prasad; expires=Fri, 30 Dec 2025 12:00:00 UTC; path=/";</pre>
+      </p>
+      <h2>Change a Cookie with JavaScript</h2>
+      <p>We can change a cookie the same way as you create it</p>
+      <h2>Delete a Cookie with JavaScript</h2>
+      <p>
+        We don't have to specify a cookie value when you delete a cookie. Just
+        set the expires parameter to a past date:
+      </p>
+    </div>
+    <div>
+      <h2>Cookie String</h2>
+      <p>
+        document.cookie property looks like a normal text string. But it is not.
+      </p>
+    </div>
+    <div>
+      <button onclick="setCookies()">SetCookies</button>
+      <button onclick="getCookies()">Get Cookies</button>
+      <button onclick="deleteCookies()">Delete Cookies</button>
+    </div>
+  </body>
+  <script>
+    //creating a cookie
+    function setCookies(){
+      document.cookie = "username=mansi; path=/";
+      alert("Cookie set: username=mansi");
+    }
+    // read the cookie
+    function getCookies(){
+      alert("Current cookies: " + document.cookie);
+    }
+    // delete cookie
+    function deleteCookies(){
+      document.cookie="username=;expires=Thus, 01 jan 2000 00:00:00 UTC; path=/;";
+    }
+
+  </script>
+</html>

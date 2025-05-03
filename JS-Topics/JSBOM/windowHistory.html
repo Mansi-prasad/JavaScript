@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window History</title>
+  </head>
+  <body>
+    <div>
+      <h1>Window History</h1>
+      <p>
+        The window.history object contains the browsers history.
+        <mark>It can be written without the window prefix.</mark>
+      </p>
+      <h2>Window History Back</h2>
+      <p>
+        The history.back() method loads the previous URL in the history list.
+      </p>
+      <h2>Window History Forward</h2>
+      <p>
+        The history.forward() method loads the next URL in the history list.
+      </p>
+    </div>
+    <div>
+      <button onclick="goBack()">Back</button>
+      <button onclick="goForward()">Forward</button>
+      <a href="https://www.google.com">Google</a>
+    </div>
+  </body>
+  <script>
+    // same as clicking the Back and forward button in the browser.
+    function goBack() {
+      window.history.back();
+    }
+    function goForward() {
+      window.history.forward();
+    }
+  </script>
+</html>

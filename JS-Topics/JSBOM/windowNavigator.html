@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Navigator</title>
+    <style>
+      li {
+        padding: 7px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Window Navigator</h1>
+      <p>
+        The navigator object contains information about the visitor's browser.It
+        can be written with or without the window prefix
+      </p>
+      <h2>windows.navigator Properties</h2>
+      <ul>
+        <li>
+          cookieEnabled property returns true if cookies are enabled, otherwise
+          false
+        </li>
+        <li>language property returns the browser's language</li>
+        <li>onLine property returns true if the browser is online</li>
+        <li>appName property returns the application name of the browser</li>
+        <li>
+          appCodeName property returns the application code name of the browser
+        </li>
+
+        <li>product property returns the product name of the browser engine</li>
+        <li>
+          appVersion property returns version information about the browser
+        </li>
+
+        <li>
+          platform property returns the browser platform (operating system)
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // Window Navigator Properties
+    console.log("Is browser cookies enabled:", window.navigator.cookieEnabled);
+    console.log("Browser's language:", navigator.language);
+    console.log("Is browser online:", navigator.onLine);
+    // below metioned all the properties are removed in latest web standard
+    console.log("Application name of browser:", navigator.appName);
+    console.log("Application code name of browser:", navigator.appCodeName);
+    console.log("Product name of browser engine:", navigator.product);
+    console.log("Browser version:", navigator.appVersion);
+    console.log("Browser platform:", navigator.platform);
+  </script>
+</html>

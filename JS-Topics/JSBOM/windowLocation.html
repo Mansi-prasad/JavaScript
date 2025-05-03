@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Location</title>
+    <style>
+      li {
+        padding: 7px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Window Location</h1>
+      <p>
+        window.location object can be used to get the current page address (URL)
+        and to redirect the browser to a new page.It can be written without the
+        window prefix.
+      </p>
+      <ul>
+        <li>window.location.href returns the href (URL) of the current page</li>
+        <li>
+          window.location.hostname returns the domain name of the web host
+        </li>
+        <li>
+          window.location.pathname returns the path and filename of the current
+          page
+        </li>
+        <li>
+          window.location.protocol returns the web protocol used (http: or
+          https:)
+        </li>
+        <li>window.location.assign() loads a new document</li>
+      </ul>
+      <mark
+        >Most browsers will not display default port numbers (80 for http and
+        443 for https)</mark
+      ><br /><br />
+      <button onclick="newDoc()">Load a new document</button>
+    </div>
+  </body>
+  <script>
+    // Window Location properties
+    console.log("Page location:", window.location.href); // return the URL of the current page
+    console.log("Page hostname:", window.location.hostname); // return the name of the internet host (of the current page.)
+    console.log("Page path:", window.location.pathname); // return the pathname of the current page
+    console.log("Page protocol:", window.location.protocol); // returns the web protocol of the page
+    console.log("Port number:", window.location.port); // return the number of the internet host port
+
+    function newDoc() {
+      window.location.assign("https://www.google.com");
+    }
+  </script>
+</html>

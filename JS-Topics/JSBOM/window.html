@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button{
+        border: none;
+        border-radius: 10px;
+        background-color: blueviolet;
+        padding: 10px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Window - The Browser Object Model</h1>
+      <p>
+        The Browser Object Model (BOM) allows JavaScript to "talk to" the
+        browser.
+      </p>
+      <p>
+        The window object is supported by all browsers. It represents the
+        browser's window. All global JavaScript objects, functions, and
+        variables automatically become members of the window object.
+      </p>
+      <p>
+        Global variables are properties of the window object. Global functions
+        are methods of the window object.
+      </p>
+      <p>the document object (of the HTML DOM) is a property of the window object:  <pre>window.document.getElementById("header"); is same as : document.getElementById("header");</pre></p>
+    </div>
+    <div>
+      <h2>Window Properties:</h2>
+      <ul>
+        <li>window.innerHeight - the inner height of the browser window (in pixels).</li>
+        <li>window.innerWidth - the inner width of the browser window (in pixels).</li>
+      </ul>
+      <mark>The browser window (the browser viewport) is NOT including toolbars and scrollbars.</mark>
+    </div>
+    <div>
+      <h2>Window Methods:</h2>
+      <ul>
+        <li>window.open() - open a new window</li>
+        <li>window.close() - close the current window</li>
+        <li>window.moveTo() - move the current window</li>
+        <li>window.resizeTo() - resize the current window</li>
+      </ul>
+    </div>
+    <div class="btns">
+      <button onclick="openWindow()">Open window</button>
+      <button onclick="closeWindow()">close window</button>
+      <button onclick="moveWindow()">Move window</button>
+      <button onclick="resizeWindow()">Resize window</button>
+      
+    </div> 
+  </body>
+  <script>
+    console.log(window.innerHeight); // 324 px
+    console.log(window.innerWidth); // 1528 px
+   function openWindow(){
+    popup=window.open('',"popupWindow",'width=300,height=200');
+    popup.document.write('<h2>This is a popup!</h2>');
+   }
+   function closeWindow(){
+    if(popup && !popup.closed){
+      popup.close();
+    }
+    else{
+      alert("popup is already closed.");
+    }
+   }
+   function moveWindow(){
+    if(popup && !popup.closed){
+      popup.moveTo(100,100); // moves 100 px from top and left of screen
+    }
+    else{
+      alert("open the popup first.");
+    }
+   }
+   function resizeWindow(){
+    if(popup && !popup.closed){
+      popup.resizeTo(500,500); // resize the window 500 * 500
+    }
+    else{
+      alert("open the popup first.");
+    }
+   }
+
+
+
+
+   // window.open("https://www.google.com/");  open google
+   // window.close(); // it will close your browser window or tab
+    // window.alert("Hello");
+    // window.prompt("what's your name: ");
+    // window.confirm("Are you sure?");
+
+   
+
+  </script>
+</html>

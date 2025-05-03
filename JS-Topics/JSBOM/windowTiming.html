@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Timing Events</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Timing Events</h1>
+      <p>
+        The window object allows execution of code at specified time intervals.
+        These time intervals are called timing events.
+      </p>
+      <p>The two key methods to use with JavaScript are:</p>
+      <ul>
+        <li>setTimeout(function, milliseconds)</li>
+        <p>
+          Executes a function, after waiting a specified number of milliseconds.
+        </p>
+        <li>setInterval(function, milliseconds)</li>
+        <p>
+          Same as setTimeout(), but repeats the execution of the function
+          continuously.
+        </p>
+        <mark
+          >The setTimeout() and setInterval() are both methods of the HTML DOM
+          Window object.</mark
+        >
+      </ul>
+    </div>
+    <div>
+      <h3>Stop the Execution of setTimeout()</h3>
+      <p>
+        The clearTimeout() method stops the execution of the function specified
+        in setTimeout().
+      </p>
+      <pre>window.clearTimeout(timeoutVariable)</pre>
+    </div>
+    <div>
+      <h3>Stop the Execution of setInterval()</h3>
+      <p>
+        The clearInterval() method stops the executions of the function
+        specified in the setInterval() method
+      </p>
+      <pre>window.clearInterval(timerVariable)</pre>
+    </div>
+    <div>
+      <button onclick="startTimeout()">Start Timeout</button>
+      <button onclick="stopTimeout()">Stop Timeout</button>
+      <button onclick="startInterval()">Start Interval</button>
+      <button onclick="stopInterval()">Stop Interval</button>
+    </div>
+  </body>
+  <script>
+    let count = 0;
+    let timeoutId;
+    let intervalId;
+    function startTimeout() {
+      timeoutId = setTimeout(() => {
+        console.log("Hello");
+      }, 5000);
+    }
+    function startInterval() {
+      intervalId = setInterval(() => {
+        console.log(count);
+        count++;
+      }, 1000);
+    }
+    function stopTimeout() {
+      clearTimeout(timeoutId);
+    }
+    function stopInterval() {
+      clearInterval(intervalId);
+    }
+  </script>
+</html>

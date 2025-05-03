@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Screen</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Window Screen</h1>
+      <p>
+        The window.screen object contains information about the user's screen.
+      </p>
+      <p>The window.screen object can be written without the window prefix.</p>
+      <ol>
+        <li>
+          screen.width property returns the width of the visitor's screen in
+          pixels.
+        </li>
+        <li>
+          screen.height property returns the height of the visitor's screen in
+          pixels.
+        </li>
+        <li>
+          screen.availWidth property returns the width of the visitor's screen,
+          in pixels, minus interface features like the Windows Taskbar.
+        </li>
+        <li>
+          screen.availHeight property returns the height of the visitor's
+          screen, in pixels, minus interface features like the Windows Taskbar.
+        </li>
+        <li>
+          screen.colorDepth property returns the number of bits used to display
+          one color. All modern computers use 24 bit or 32 bit hardware for
+          color resolution:
+        </li>
+        <ul>
+          <li>24 bits = 16,777,216 different "True Colors"</li>
+          <li>32 bits = 4,294,967,296 different "Deep Colors"</li>
+        </ul>
+        <li>
+          screen.pixelDepth property returns the pixel depth of the screen.
+        </li>
+      </ol>
+    </div>
+  </body>
+  <script>
+    // window screen properties
+    console.log("Screen Width: ", screen.width);
+    console.log("Screen Height: ", screen.height);
+    console.log("Avalilable Screen Width: ", screen.availWidth);
+    console.log("Avalilable Screen Height: ", screen.availHeight);
+    console.log("Screen color depth: ", screen.colorDepth); // in bits
+    console.log("Screen pixel depth: ", screen.pixelDepth); // in bits
+  </script>
+</html>

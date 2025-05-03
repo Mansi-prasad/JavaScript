@@ -13,7 +13,14 @@
   </style>
   <body>
     <div class="container">
+      <div id="div1">
+        <p id="p1">paragraph 1.</p>
+      </div>
       <h1 id="heading1" class="heading">DOM <span>Node</span></h1>
+      <p>
+        According to the W3C HTML DOM standard, everything in an HTML document
+        is a node :
+      </p>
       <p>
         In the DOM, everything is a Node:(an element, text inside elements,
         comments, document itself)
@@ -25,10 +32,69 @@
           Element Node: Any HTML tag, It can contain attributes, child elements,
           and text.
         </li>
-        <li>Text Node: represents only text inside an element.</li>
-        <li>Comment Node: Comments</li>
+        <li>Text Node: represents only text inside an HTML element.</li>
+        <li>Comment Node: All Comments</li>
         <li>Document Node: document (entire HTML page)</li>
       </ul>
+      <p>
+        With the HTML DOM, all nodes in the node tree can be accessed by
+        JavaScript. New nodes can be created, and all nodes can be modified or
+        deleted.
+      </p>
+      <h2>Node Relationships</h2>
+      <p>
+        The terms parent, child, and sibling are used to describe the
+        relationships.
+      </p>
+      <ul>
+        <li>n a node tree, the top node is called the root (or root node)</li>
+        <li>
+          Every node has exactly one parent, except the root (which has no
+          parent)
+        </li>
+        <li>A node can have a number of children</li>
+        <li>Siblings (brothers or sisters) are nodes with the same parent</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Navigating Between Nodes</h2>
+      <ul>
+        <li>parentNode</li>
+        <li>childNodes[nodenumber]</li>
+        <li>firstChild</li>
+        <li>lastChild</li>
+        <li>nextSibling</li>
+        <li>previousSibling</li>
+      </ul>
+    </div>
+    <div>
+      <h2>DOM Root Nodes</h2>
+      <p>
+        There are two special properties that allow access to the full document:
+      </p>
+      <ul>
+        <li>document.body - The body of the document</li>
+        <li>document.documentElement - The full document</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Node Properties</h2>
+      <ol>
+        <li>
+          nodeName : read-only, nodeName of an element node is same as the
+          tag(uppercase) name,of an attribute node is the attribute name,of a
+          text node is always #text, of the document node is always #document
+        </li>
+        <li>
+          nodeValue: nodeValue for element nodes is null, for text nodes is the
+          text itself, for attribute nodes is the attribute value
+        </li>
+        <li>
+          nodeType : read-only, returns the type of a node.(ELEMENT_NODE-> 1,
+          ATTRIBUTE_NODE-> 2, TEXT_NODE->3, COMMENT_NODE-> 8, DOCUMENT_NODE->9,
+          DOCUMENT_TYPE_NODE-> 10)
+        </li>
+      </ol>
     </div>
   </body>
   <script>
@@ -47,21 +113,27 @@
     console.log("lastChild: ", heading1.lastChild); //retun Last child node
     console.log("nextSibling: ", heading1.nextSibling);
     console.log("previousSibling: ", heading1.previousSibling);
-   
+
     console.log(
       "number of child elements in heading1 : ",
       heading1.childElementCount
     );
 
     //Node Methods
-    const newNode = document.createElement("p");
-    newNode.innerText = "lorem retr rsff hdg ";
-    console.log("newNode: ", newNode);
-    console.log("appendChild: ", heading1.appendChild(newNode)); //Add a node as last child
-    // console.log("removeChild: ", heading1.removeChild(newNode)); //	Remove a child node
-    //console.log("replaceChild: ", parent.replaceChild(newNode, heading1));
+    //
+    const con = document.getElementById("div1"); //
+    const para = document.createElement("p"); // create new <p> element.
+    const text = document.createTextNode("This is paragraph of div1."); // add text to the <p> element
+    para.appendChild(text); // append the text node to the <p> element
+    con.appendChild(para); // appends the new element(as the last child of the parent.) to the existing element
 
-    console.log("insertBefore: ", parent.insertBefore(newNode, heading1));
+    //  insertBefore()
+    const p1 = document.getElementById("p1");
+    con.insertBefore(para, p1); // para insert before p1.
+
+    //console.log("removeChild: ", con.removeChild(para)); //	Remove a child node
+    //console.log("replaceChild: ", parent.replaceChild(para, heading1));
+
     console.log("check for heading inside parent: ", parent.contains(heading1));
     console.log("heading1 has childNode: ", heading1.hasChildNodes());
   </script>

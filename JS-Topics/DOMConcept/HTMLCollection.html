@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMLCollection</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript HTML DOM Collections</h1>
+      <p>
+        An HTMLCollection object is an array-like list (collection) of
+        <mark>document elements.</mark>
+      </p>
+      <p>
+        <mark
+          >HTMLCollection items can be accessed by their name, id, or index
+          number.</mark
+        >
+      </p>
+      <p>
+        An HTMLCollection is <mark>always a live collection.</mark> Example: If
+        you add a li element to a list in the DOM, the list in the
+        HTMLCollection will also change.
+      </p>
+      <p>
+        The getElementsByTagName(),getElementsByClassName() method returns an
+        HTMLCollection object.
+      </p>
+    </div>
+    <div>
+      <h2>HTMLCollection Length</h2>
+      <p>
+        The length property defines the number of elements in an HTMLCollection
+      </p>
+    </div>
+    <div>
+      <p>
+        <mark>An HTMLCollection is NOT an array!</mark>You can loop through the
+        list and refer to the elements with a number (just like an array).
+        However, you cannot use array methods like valueOf(), pop(), push(), or
+        join() on an HTMLCollection.
+      </p>
+    </div>
+  </body>
+  <script>
+    const def = document.getElementsByTagName("p"); // return HTML Collection.(accessed by an index number.)
+    console.log(def);
+    console.log("First p element: ", def[1]); // return second <p> element
+    console.log("length of  HTMLcollection: ", def.length);
+    // change the text color of all <p> elements
+    for (let i = 0; i < def.length; i++) {
+      def[i].style.color = "purple";
+    }
+  </script>
+</html>

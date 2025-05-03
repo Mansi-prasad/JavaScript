@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Events</title>
+    <style>
+      .box{
+        border: solid black;
+        height:100px;
+        width:100px;
+        margin:30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript HTML DOM Events</h1>
+      <p>
+        A JavaScript can be executed when an event occurs, like when a user
+        clicks on an HTML element.
+      </p>
+      <p>
+        To execute code when a user clicks on an element, add JavaScript code to
+        an HTML event attribute: onclick=JavaScript
+      </p>
+    </div>
+    <div>
+      <h2>HTML Event Attributes</h2>
+      <p>To assign events to HTML elements you can use event attributes. EX: <pre><button onclick="displayDate()">Try it</button></pre></p>
+    </div>
+    <div>
+      <h2>Assign Events Using the HTML DOM</h2>
+      <p>The HTML DOM allows you to assign events to HTML elements using JavaScript EX: <pre>document.getElementById("myBtn").onclick = displayDate;</pre></p>
+    </div>
+    <form action="" onsubmit="">
+      <label for="Uname"></label>
+      <input type="text" name="Username" id="Uname" placeholder="Enter Username" onchange="Lowercase()" oninput="Uppercase()">
+      <button type="submit">Submit</button>
+    </form>
+    <div class="box" onmouseover="this.innerHTML='mouseOver'">
+      onMouseOver
+    </div>
+    <div class="box" onmousedown="this.innerHTML='mouseDown'">
+      onmousedown
+    </div>
+    <div class="box" onmouseenter="this.innerHTML='mouseEnter'">
+      onmouseenter
+    </div>
+    <div class="box" onmouseleave="this.innerHTML='mouseLeave'">
+      onmouseleave
+    </div>
+    <div class="box" onmousemove="this.innerHTML='mouseMove'">
+      onmousemove
+    </div>
+    <div class="box" onmouseup="this.innerHTML='mouseUp'">
+      onmouseup
+    </div>
+    <div class="box" onmousewheel="this.innerHTML='mouseWheel'">
+      onmousewheel
+    </div>
+  </body>
+  <script>
+    function Uppercase(){
+      const uname=document.getElementById("Uname");
+     uname.value=uname.value.toUpperCase();
+    }
+    function Lowercase(){
+      const uname=document.getElementById("Uname");
+     uname.value=uname.value.toLowerCase();
+    }
+   
+  </script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM EventListener</title>
+    <style>
+      div{
+        margin: 20px 0;
+      }
+      .effect{
+        color: blue;
+        background-color: black;
+        border: none;
+        border-radius: 10px;
+        padding: 8px;
+      }
+      #para{
+        padding: 10px;
+        background-color: white;
+        border: 1px solid black;
+        margin: 10px;
+      }
+      #divContainer1,#divContainer2{
+        height: 150px;
+        width: 150px;
+        border: 2 px solid maroon;
+        background-color: chartreuse;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="btn">Click to check Event Handler</button>
+    </div>
+    <div id="divContainer1">
+      <h2>Bubbling</h2>
+     <p id="para" onclick="alert('white area clicked!')"> Click</p>
+    </div>
+    <div id="divContainer2">
+      <h2>Capturing</h2>
+      <p id="para" onclick="alert('white area clicked!')">Click</p>
+    </div>
+    <div>
+      <h1>JavaScript HTML DOM EventListener</h1>
+      <p>
+        The addEventListener() method attaches an event handler to the specified
+        element, without overwriting existing event handlers.
+      </p>
+      <p>We can add many event handlers of the same type to one element,</p>
+      <mark>Don't use the "on" prefix for the event; use "click" instead of "onclick".</mark>
+      <p>Syntax: <pre>element.addEventListener(event, function, useCapture);</pre></p>
+      <ul>
+        where,
+        <li>event: can be event type like alick,mousedown etc.</li>
+        <li>function: function we want to call when the event occurs</li>
+        <li>useCapture: a boolean value specifying whether to use event bubbling or event capturing. This parameter is optional.</li>
+      </ul>
+      <mark>The default value for useCapture is false, which will use the bubbling propagation, when the value is set to true, the event uses the capturing propagation.</mark>
+     <div>
+      <mark>In bubbling the inner most element's event is handled first and then the outer: the p element's click event is handled first, then the div element's click event.</mark>
+     </div>
+      <div>
+        <mark>In capturing the outer most element's event is handled first and then the inner: the div element's click event will be handled first, then the p element's click event.</mark>
+      </div>
+    </div>
+    <div>
+      <h2> removeEventListener() method</h2>
+      <p>removes event handlers that have been attached with the addEventListener() method</p>
+    </div>
+  </body>
+  <script>
+    const btn=document.getElementById("btn");
+    function alertFun(){
+      alert("Button clicked.")
+    }
+    function addClass(){
+      btn.classList.toggle("effect")
+    }
+   btn.addEventListener("click",alertFun);
+   btn.addEventListener("click",addClass);
+
+    // removeEventListener()
+    btn.removeEventListener("click",alertFun);
+    // Bubbling (inner most element's event is handled first )
+    document.getElementById("divContainer1").addEventListener("click",function(){
+      alert("You clicked bubbling container.")
+    },false);
+
+
+    // capturing (outer most element's event is handled first )
+    document.getElementById("divContainer2").addEventListener("click",function(){
+      alert("You click the captureContainer")
+    },true);
+
+
+  </script>
+</html>

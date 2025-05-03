@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Node Lists</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript HTML DOM Node Lists</h1>
+      <p>
+        A NodeList object is a list (collection) of
+        <mark
+          >document nodes (element nodes, attribute nodes, and text
+          nodes).</mark
+        >
+      </p>
+      <p>
+        <mark>NodeList items can only be accessed by their index number.</mark>
+      </p>
+      <p>
+        A NodeList is most often <mark>a static collection.</mark> Example: If
+        you add a li element to a list in the DOM, the list in NodeList will not
+        change.
+      </p>
+      <p>
+        Browsers return a NodeList object for the method querySelectorAll() and
+        for the property childNodes.
+      </p>
+      <p>
+        A NodeList may look like an array, but it is not. You can loop through a
+        NodeList and refer to its nodes by index. But, you cannot use Array
+        methods like push(), pop(), or join() on a NodeList.
+      </p>
+    </div>
+    <div>
+      <h2>HTML DOM Node List Length</h2>
+      <p>The length property defines the number of nodes in a node list</p>
+    </div>
+  </body>
+  <script>
+    const allP = document.querySelectorAll("p"); // can be accessed by an index number.
+    console.log(allP); // return nodeList
+    console.log(allP[0]); //return first
+    console.log("length of nodelist: ", allP.length);
+
+    // changing style of all the <p> elements
+    for (let i = 0; i < allP.length; i++) {
+      allP[i].style.color = "red ";
+    }
+  </script>
+</html>

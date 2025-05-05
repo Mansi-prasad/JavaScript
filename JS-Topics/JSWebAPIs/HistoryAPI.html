@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History API</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <a href="https://www.google.com">google</a>
+        <button onclick="backFun()">back</button>
+        <button onclick="forwardFun()">forward</button>
+        <button onclick="goFun()">GO</button>
+      </div>
+      <h1>Web History API</h1>
+      <p>
+        The Web History API provides easy methods to access the windows.history
+        object(contains the URLs (Web Sites) visited by the user)
+      </p>
+      <ol>
+        <li>
+          The back() method loads the previous URL in the windows.history list.
+        </li>
+        <li>The go() method loads a specific URL from the history list:</li>
+        The forward() method Loads the next URL in the history list
+      </ol>
+      <h3>History Object Properties</h3>
+      <p>length Returns the number of URLs in the history list</p>
+    </div>
+  </body>
+
+  <script>
+    function backFun() {
+      window.history.back();
+    }
+    function forwardFun() {
+      window.history.forward();
+    }
+    function goFun() {
+      //window.history.go(-2); // go back 2 pages.
+      window.history.go(1); // go forward 1 pages.
+    }
+    console.log(
+      " number of URLs in the history list of the current browser window: ",
+      window.history.length
+    );
+  </script>
+</html>

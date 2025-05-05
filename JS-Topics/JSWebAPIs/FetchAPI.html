@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript Fetch API</h1>
+      <p>
+        The Fetch API interface allows web browser to make HTTP requests to web
+        servers(No need for XMLHttpRequest).
+      </p>
+    </div>
+  </body>
+  <script>
+    let file = "test.txt";
+    fetch(file)
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP status " + res.status);
+        return res.text();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err.message));
+
+    // async await
+    async function fun() {
+      let res = await fetch(file);
+      let data = await res.text();
+      console.log(data);
+    }
+    fun();
+  </script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storage API</title>
+  </head>
+  <body>
+    <div>
+      <h1>Web Storage API</h1>
+      <p>
+        The Web Storage API is used for storing and retrieving data in the
+        browser.
+      </p>
+      <div>
+        <h2>localStorage Object</h2>
+        <p>
+          The localStorage object provides access to a local storage for a
+          particular Web Site. It allows us to store, read, add, modify, and
+          delete data items for that domain.
+        </p>
+        <p>
+          <mark
+            >The data is stored with no expiration date, and will not be deleted
+            when the browser is closed.</mark
+          >
+        </p>
+        
+      </div>
+      <div>
+        <h2>sessionStorage Object</h2>
+        <p>
+          sessionStorage object is identical to the localStorage object.The
+          difference is that the sessionStorage object stores data for one
+          session.
+
+          <mark>The data is deleted when the browser is closed.</mark>
+        </p>
+        
+        </ol>
+      </div>
+      <div>
+        <h3>Storage Object Properties and Methods</h3>
+        <ol>
+          <li>key(n)-	Returns the name of the nth key in the storage</li>
+          <li>length-	Returns the number of data items stored in the Storage object</li>
+          <li>getItem(keyname)-	Returns the value of the specified key name</li>
+          <li>setItem(keyname, value)-	Adds a key to the storage, or updates a key value (if it already exists)</li>
+          <li>removeItem(keyname)-	Removes that key from the storage</li>
+          <li>clear()-	Empty all key out of the storage</li>
+        </ol>
+      </div>
+    </div>
+  </body>
+  <script>
+    // localStorage
+    localStorage.setItem("name","abc");
+    localStorage.setItem("address","xyz");
+    
+   
+    console.log("name: ",localStorage.getItem("name"));
+    const firstKey= localStorage.key(0);
+    console.log("name of first key: ",firstKey);
+    const Items=localStorage.length;
+    console.log("Number of data items in localStorage : ",Items);
+    localStorage.removeItem("name"); // remove the key from storage.
+    console.log("name: ",localStorage.getItem("name"));
+    // localStorage.clear(); // Empty storage
+    
+    // sessionStorage
+    sessionStorage.setItem("name","mansi");
+    console.log(sessionStorage.getItem("name"));
+  </script>
+</html>

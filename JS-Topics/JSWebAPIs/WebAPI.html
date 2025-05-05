@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web APIs</title>
+    <style></style>
+  </head>
+  <body>
+    <div>
+      <button onclick="getLocation()">Click to get coordinates</button>
+      <p id="ans"></p>
+      <h1>Web APIs</h1>
+      <p>
+        A Web API is an application programming interface for the Web.(A Browser
+        API can extend the functionality of a web browser, and A Server API can
+        extend the functionality of a web server. )
+      </p>
+      <p>
+        <mark
+          >The position is not available unless the user approves it. and The
+          Geolocation API will only work on secure contexts such as HTTPS.</mark
+        >
+      </p>
+      <h2>Browser APIs</h2>
+      <p>
+        All browsers have a set of built-in Web APIs to support complex
+        operations, and to help accessing data. EX: Geolocation API can return
+        the coordinates of where the browser is located.
+      </p>
+      <h2>Third Party APIs</h2>
+      <p>To use these APIs, We will have to download the code from the Web.</p>
+      <p>Examples:</p>
+      <ul>
+        <li>YouTube API - Allows us to display videos on a web site.</li>
+        <li>Twitter API - Allows us to display Tweets on a web site.</li>
+        <li>
+          Facebook API - Allows us to display Facebook info on a web site.
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    let ans = document.getElementById("ans");
+    function getLocation() {
+      try {
+        navigator.geolocation.getCurrentPosition((pos) => {
+          console.log(pos);
+          ans.innerHTML =
+            "Latitude: " +
+            pos.coords.latitude +
+            "<br/> Longitude: " +
+            pos.coords.longitude;
+        });
+      } catch (err) {
+        ans.innerHTML = err.message;
+      }
+    }
+  </script>
+</html>

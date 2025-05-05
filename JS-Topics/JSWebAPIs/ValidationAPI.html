@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation API</title>
+  </head>
+  <body>
+    <div>
+      <input type="number" id="num" min="10" max="100" required />
+      <button onclick="checkValidityNum()">checkValidity</button>
+      <p id="ans"></p>
+      <button onclick="validityProp()">check Validity properties</button>
+    </div>
+    <div>
+      <h1>JavaScript Validation API</h1>
+      <div>
+        <h3>Constraint Validation DOM Methods</h3>
+        <ul>
+          <li>
+            checkValidity()- Returns true if an input element contains valid
+            data.
+          </li>
+          <li>
+            setCustomValidity()- Sets the validationMessage property of an input
+            element.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3>Constraint Validation DOM Properties</h3>
+        <ul>
+          <li>
+            validity- Contains boolean properties related to the validity of an
+            input element.
+          </li>
+          <li>
+            validationMessage- Contains the message a browser will display when
+            the validity is false.
+          </li>
+          <li>
+            willValidate- Indicates if an input element will be validated.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>Validity Properties</h2>
+        <p>
+          The validity property of an input element contains a number of
+          properties related to the validity of data:
+        </p>
+        <ul>
+          <li>customError</li>
+          <li>patternMismatch</li>
+          <li>rangeOverflow</li>
+          <li>rangeUnderflow</li>
+          <li>valid</li>
+          <li>stepMismatch</li>
+          <li>tooLong</li>
+          <li>typeMismatch</li>
+          <li>valueMissing</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    // checkValidity()
+    function checkValidityNum() {
+      const input = document.getElementById("num");
+      if (!input.checkValidity()) {
+        alert(input.validationMessage);
+        console.log("validationMessage: ", input.validationMessage);
+      } else {
+        console.log("willValidate: ", input.willValidate);
+        document.getElementById("ans").innerHTML = "Input Success";
+      }
+      console.log("validity: ", input.validity);
+    }
+
+    // Validity Properties
+    function validityProp() {
+      const input = document.getElementById("num");
+      if (input.validity.rangeOverflow) {
+        console.log("input too large.");
+      }
+      if (input.validity.rangeUnderflow) {
+        console.log("input too small");
+      }
+      if (input.validity.valid) {
+        console.log("input is valid");
+      }
+      //if (input.validity.typeMismatch) {
+      //console.log("input type mismatched.");
+      //}
+
+      if (input.validity.valueMissing) {
+        console.log("input value missing");
+      }
+    }
+  </script>
+</html>

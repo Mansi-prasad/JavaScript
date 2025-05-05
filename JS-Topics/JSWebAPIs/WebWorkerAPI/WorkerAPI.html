@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workers API</title>
+  </head>
+  <body>
+    <div>
+      <p>Count: <span id="ans"></span></p>
+      <button onclick="startWorker()">start worker</button>
+      <button onclick="stopWorker()">stop worker</button>
+    </div>
+    <div>
+      <h1>Web Workers API</h1>
+      <p>
+        A web worker is a JavaScript running in the background, without
+        affecting the performance of the page.We can continue to do whatever you
+        want: clicking, selecting things, etc., while the web worker runs in the
+        background.
+      </p>
+      <p>
+        <mark
+          >Note: Since web workers are in external files, they do not have
+          access to window, document and parent object.</mark
+        >
+      </p>
+    </div>
+  </body>
+  <script>
+    // checking web worker support in browser.
+    if (typeof Worker != "undefined") {
+      console.log("worker: ", Worker);
+      console.log("Web worker support!");
+    } else {
+      console.log("Web worker does not support!");
+    }
+
+    let w;
+    function startWorker() {
+      // Create a Web Worker Object
+      if (typeof w == "undefined") {
+        w = new Worker("worker.js");
+        console.log("worker obj: ", w);
+      }
+      // can send and receive messages from the web worker
+      w.onmessage = function (e) {
+        document.getElementById("ans").innerHTML = e.data;
+      };
+    }
+    function stopWorker() {
+      w.terminate(); //Terminate a Web Worker
+      w = undefined; // Reuse the Web Worker
+    }
+  </script>
+</html>
